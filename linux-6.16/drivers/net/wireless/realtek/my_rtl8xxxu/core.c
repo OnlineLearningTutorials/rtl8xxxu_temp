@@ -613,7 +613,7 @@ const u32 rtl8xxxu_iqk_phy_iq_bb_reg[RTL8XXXU_BB_REGS] = {
 
 u8 rtl8xxxu_read8(struct rtl8xxxu_priv *priv, u16 addr)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_read8");
+	//printk(KERN_DEBUG "core.c - rtl8xxxu_read8");
 	struct usb_device *udev = priv->udev;
 	int len;
 	u8 data;
@@ -637,7 +637,7 @@ u8 rtl8xxxu_read8(struct rtl8xxxu_priv *priv, u16 addr)
 
 u16 rtl8xxxu_read16(struct rtl8xxxu_priv *priv, u16 addr)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_read16");
+	//printk(KERN_DEBUG "core.c - rtl8xxxu_read16");
 	struct usb_device *udev = priv->udev;
 	int len;
 	u16 data;
@@ -661,7 +661,7 @@ u16 rtl8xxxu_read16(struct rtl8xxxu_priv *priv, u16 addr)
 
 u32 rtl8xxxu_read32(struct rtl8xxxu_priv *priv, u16 addr)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_read32");
+	//printk(KERN_DEBUG "core.c - rtl8xxxu_read32");
 	struct usb_device *udev = priv->udev;
 	int len;
 	u32 data;
@@ -685,7 +685,7 @@ u32 rtl8xxxu_read32(struct rtl8xxxu_priv *priv, u16 addr)
 
 int rtl8xxxu_write8(struct rtl8xxxu_priv *priv, u16 addr, u8 val)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_write8");
+	//printk(KERN_DEBUG "core.c - rtl8xxxu_write8");
 	struct usb_device *udev = priv->udev;
 	int ret;
 
@@ -709,7 +709,7 @@ int rtl8xxxu_write8(struct rtl8xxxu_priv *priv, u16 addr, u8 val)
 
 int rtl8xxxu_write16(struct rtl8xxxu_priv *priv, u16 addr, u16 val)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_write16");
+	//printk(KERN_DEBUG "core.c - rtl8xxxu_write16");
 	struct usb_device *udev = priv->udev;
 	int ret;
 
@@ -732,7 +732,7 @@ int rtl8xxxu_write16(struct rtl8xxxu_priv *priv, u16 addr, u16 val)
 
 int rtl8xxxu_write32(struct rtl8xxxu_priv *priv, u16 addr, u32 val)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_write32");
+	//printk(KERN_DEBUG "core.c - rtl8xxxu_write32");
 	struct usb_device *udev = priv->udev;
 	int ret;
 
@@ -755,7 +755,7 @@ int rtl8xxxu_write32(struct rtl8xxxu_priv *priv, u16 addr, u32 val)
 
 int rtl8xxxu_write8_set(struct rtl8xxxu_priv *priv, u16 addr, u8 bits)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_write8_set");
+	//printk(KERN_DEBUG "core.c - rtl8xxxu_write8_set");
 	u8 val8;
 
 	val8 = rtl8xxxu_read8(priv, addr);
@@ -765,7 +765,7 @@ int rtl8xxxu_write8_set(struct rtl8xxxu_priv *priv, u16 addr, u8 bits)
 
 int rtl8xxxu_write8_clear(struct rtl8xxxu_priv *priv, u16 addr, u8 bits)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_write8_clear");
+	//printk(KERN_DEBUG "core.c - rtl8xxxu_write8_clear");
 	u8 val8;
 
 	val8 = rtl8xxxu_read8(priv, addr);
@@ -775,7 +775,7 @@ int rtl8xxxu_write8_clear(struct rtl8xxxu_priv *priv, u16 addr, u8 bits)
 
 int rtl8xxxu_write16_set(struct rtl8xxxu_priv *priv, u16 addr, u16 bits)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_write16_set");
+	//printk(KERN_DEBUG "core.c - rtl8xxxu_write16_set");
 	u16 val16;
 
 	val16 = rtl8xxxu_read16(priv, addr);
@@ -785,7 +785,7 @@ int rtl8xxxu_write16_set(struct rtl8xxxu_priv *priv, u16 addr, u16 bits)
 
 int rtl8xxxu_write16_clear(struct rtl8xxxu_priv *priv, u16 addr, u16 bits)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_write16_clear");
+	//printk(KERN_DEBUG "core.c - rtl8xxxu_write16_clear");
 	u16 val16;
 
 	val16 = rtl8xxxu_read16(priv, addr);
@@ -795,7 +795,7 @@ int rtl8xxxu_write16_clear(struct rtl8xxxu_priv *priv, u16 addr, u16 bits)
 
 int rtl8xxxu_write32_set(struct rtl8xxxu_priv *priv, u16 addr, u32 bits)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_write32_set");
+	//printk(KERN_DEBUG "core.c - rtl8xxxu_write32_set");
 	u32 val32;
 
 	val32 = rtl8xxxu_read32(priv, addr);
@@ -805,7 +805,7 @@ int rtl8xxxu_write32_set(struct rtl8xxxu_priv *priv, u16 addr, u32 bits)
 
 int rtl8xxxu_write32_clear(struct rtl8xxxu_priv *priv, u16 addr, u32 bits)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_write32_clear");
+	//printk(KERN_DEBUG "core.c - rtl8xxxu_write32_clear");
 	u32 val32;
 
 	val32 = rtl8xxxu_read32(priv, addr);
@@ -816,7 +816,7 @@ int rtl8xxxu_write32_clear(struct rtl8xxxu_priv *priv, u16 addr, u32 bits)
 int rtl8xxxu_write32_mask(struct rtl8xxxu_priv *priv, u16 addr,
 			  u32 mask, u32 val)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_write32_mask");
+	//printk(KERN_DEBUG "core.c - rtl8xxxu_write32_mask");
 	u32 orig, new, shift;
 
 	shift = __ffs(mask);
@@ -830,7 +830,7 @@ int rtl8xxxu_write_rfreg_mask(struct rtl8xxxu_priv *priv,
 			      enum rtl8xxxu_rfpath path, u8 reg,
 			      u32 mask, u32 val)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_write_rfreg_mask");
+	//printk(KERN_DEBUG "core.c - rtl8xxxu_write_rfreg_mask");
 	u32 orig, new, shift;
 
 	shift = __ffs(mask);
@@ -843,7 +843,7 @@ int rtl8xxxu_write_rfreg_mask(struct rtl8xxxu_priv *priv,
 static int
 rtl8xxxu_writeN(struct rtl8xxxu_priv *priv, u16 addr, u8 *buf, u16 len)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_writeN");
+	//printk(KERN_DEBUG "core.c - rtl8xxxu_writeN");
 	struct usb_device *udev = priv->udev;
 	int blocksize = priv->fops->writeN_block_size;
 	int ret, i, count, remainder;
@@ -885,7 +885,7 @@ write_error:
 u32 rtl8xxxu_read_rfreg(struct rtl8xxxu_priv *priv,
 			enum rtl8xxxu_rfpath path, u8 reg)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_read_rfreg");
+	//printk(KERN_DEBUG "core.c - rtl8xxxu_read_rfreg");
 	u32 hssia, val32, retval;
 
 	hssia = rtl8xxxu_read32(priv, REG_FPGA0_XA_HSSI_PARM2);
@@ -931,7 +931,7 @@ u32 rtl8xxxu_read_rfreg(struct rtl8xxxu_priv *priv,
 int rtl8xxxu_write_rfreg(struct rtl8xxxu_priv *priv,
 			 enum rtl8xxxu_rfpath path, u8 reg, u32 data)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_write_rfreg");
+	//printk(KERN_DEBUG "core.c - rtl8xxxu_write_rfreg");
 	int ret, retval;
 	u32 dataaddr, val32;
 
