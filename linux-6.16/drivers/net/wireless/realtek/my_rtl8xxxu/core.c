@@ -613,6 +613,7 @@ const u32 rtl8xxxu_iqk_phy_iq_bb_reg[RTL8XXXU_BB_REGS] = {
 
 u8 rtl8xxxu_read8(struct rtl8xxxu_priv *priv, u16 addr)
 {
+	printk(KERN_DEBUG "core.c - ");
 	struct usb_device *udev = priv->udev;
 	int len;
 	u8 data;
