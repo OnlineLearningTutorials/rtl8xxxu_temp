@@ -7945,7 +7945,7 @@ static const struct ieee80211_iface_combination rtl8xxxu_combinations[] = {
 static int rtl8xxxu_probe(struct usb_interface *interface,
 			  const struct usb_device_id *id)
 {
-	printk(KERN_DEBUG "core.c - rtl8xxxu_probe");
+	printk(KERN_DEBUG "core.c - rtl8xxxu_probe      =======================================================================================================================================================");
 	struct rtl8xxxu_priv *priv;
 	struct ieee80211_hw *hw;
 	struct usb_device *udev;
