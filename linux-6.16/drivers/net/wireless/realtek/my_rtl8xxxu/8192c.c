@@ -338,6 +338,7 @@ static const struct rtl8xxxu_rfregval rtl8188ru_radioa_1t_highpa_table[] = {
 
 static int rtl8192cu_identify_chip(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192c.c - ");
 	struct device *dev = &priv->udev->dev;
 	u32 val32, bonding, sys_cfg, vendor;
 	int ret = 0;
@@ -396,6 +397,7 @@ out:
 
 static int rtl8192cu_load_firmware(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192c.c - ");
 	const char *fw_name;
 	int ret;
 
@@ -413,6 +415,7 @@ static int rtl8192cu_load_firmware(struct rtl8xxxu_priv *priv)
 
 static int rtl8192cu_parse_efuse(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192c.c - ");
 	struct rtl8192cu_efuse *efuse = &priv->efuse_wifi.efuse8192;
 
 	if (efuse->rtl_id != cpu_to_le16(0x8129))
@@ -466,6 +469,7 @@ static int rtl8192cu_parse_efuse(struct rtl8xxxu_priv *priv)
 
 static int rtl8192cu_init_phy_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192c.c - ");
 	const struct rtl8xxxu_rfregval *rftable;
 	int ret;
 
@@ -490,6 +494,7 @@ exit:
 
 static int rtl8192cu_power_on(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192c.c - ");
 	u8 val8;
 	u16 val16;
 	u32 val32;
@@ -596,6 +601,7 @@ static int rtl8192cu_power_on(struct rtl8xxxu_priv *priv)
 static int rtl8192cu_led_brightness_set(struct led_classdev *led_cdev,
 					enum led_brightness brightness)
 {
+	printk(KERN_DEBUG "8192c.c - ");
 	struct rtl8xxxu_priv *priv = container_of(led_cdev,
 						  struct rtl8xxxu_priv,
 						  led_cdev);

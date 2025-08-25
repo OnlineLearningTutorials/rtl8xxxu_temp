@@ -307,6 +307,7 @@ static const struct rtl8xxxu_rfregval rtl8188fu_cut_b_radioa_init_table[] = {
 
 static int rtl8188fu_identify_chip(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	struct device *dev = &priv->udev->dev;
 	u32 sys_cfg, vendor;
 	int ret = 0;
@@ -337,6 +338,7 @@ out:
 
 void rtl8188f_channel_to_group(int channel, int *group, int *cck_group)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	if (channel < 3)
 		*group = 0;
 	else if (channel < 6)
@@ -357,6 +359,7 @@ void rtl8188f_channel_to_group(int channel, int *group, int *cck_group)
 void
 rtl8188f_set_tx_power(struct rtl8xxxu_priv *priv, int channel, bool ht40)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	u32 val32, ofdm, mcs;
 	u8 cck, ofdmbase, mcsbase;
 	int group, cck_group;
@@ -399,6 +402,7 @@ rtl8188f_set_tx_power(struct rtl8xxxu_priv *priv, int channel, bool ht40)
 /* A workaround to eliminate the 2400MHz, 2440MHz, 2480MHz spur of 8188F. */
 static void rtl8188f_spur_calibration(struct rtl8xxxu_priv *priv, u8 channel)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	static const u32 frequencies[14 + 1] = {
 		[5] = 0xFCCD,
 		[6] = 0xFC4D,
@@ -513,6 +517,7 @@ static void rtl8188f_spur_calibration(struct rtl8xxxu_priv *priv, u8 channel)
 
 static void rtl8188fu_config_channel(struct ieee80211_hw *hw)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	u32 val32;
 	u8 channel, subchannel;
@@ -644,6 +649,7 @@ static void rtl8188fu_config_channel(struct ieee80211_hw *hw)
 
 static void rtl8188fu_init_aggregation(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	u8 agg_ctrl, rxdma_mode, usb_tx_agg_desc_num = 6;
 	u32 agg_rx, val32;
 
@@ -672,6 +678,7 @@ static void rtl8188fu_init_aggregation(struct rtl8xxxu_priv *priv)
 
 static void rtl8188fu_init_statistics(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	u32 val32;
 
 	/* Time duration for NHM unit: 4us, 0xc350=200ms */
@@ -703,6 +710,7 @@ static void rtl8188fu_init_statistics(struct rtl8xxxu_priv *priv)
 
 static int rtl8188fu_parse_efuse(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	struct rtl8188fu_efuse *efuse = &priv->efuse_wifi.efuse8188fu;
 	int i;
 
@@ -738,6 +746,7 @@ static int rtl8188fu_parse_efuse(struct rtl8xxxu_priv *priv)
 
 static int rtl8188fu_load_firmware(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	const char *fw_name;
 	int ret;
 
@@ -750,6 +759,7 @@ static int rtl8188fu_load_firmware(struct rtl8xxxu_priv *priv)
 
 static void rtl8188fu_init_phy_bb(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	u8 val8;
 	u16 val16;
 
@@ -777,6 +787,7 @@ static void rtl8188fu_init_phy_bb(struct rtl8xxxu_priv *priv)
 
 static int rtl8188fu_init_phy_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	int ret;
 
 	if (priv->chip_cut == 1)
@@ -789,6 +800,7 @@ static int rtl8188fu_init_phy_rf(struct rtl8xxxu_priv *priv)
 
 void rtl8188f_phy_lc_calibrate(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	u32 val32;
 	u32 rf_amode, lstf;
 	int i;
@@ -832,6 +844,7 @@ void rtl8188f_phy_lc_calibrate(struct rtl8xxxu_priv *priv)
 
 static int rtl8188fu_iqk_path_a(struct rtl8xxxu_priv *priv, u32 *lok_result)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	u32 reg_eac, reg_e94, reg_e9c, val32;
 	int result = 0;
 
@@ -905,6 +918,7 @@ static int rtl8188fu_iqk_path_a(struct rtl8xxxu_priv *priv, u32 *lok_result)
 
 static int rtl8188fu_rx_iqk_path_a(struct rtl8xxxu_priv *priv, u32 lok_result)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	u32 reg_ea4, reg_eac, reg_e94, reg_e9c, val32;
 	int result = 0;
 
@@ -1061,6 +1075,7 @@ out:
 static void rtl8188fu_phy_iqcalibrate(struct rtl8xxxu_priv *priv,
 				      int result[][8], int t)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	struct device *dev = &priv->udev->dev;
 	u32 i, val32, rx_initial_gain, lok_result;
 	u32 path_sel_bb, path_sel_rf;
@@ -1217,6 +1232,7 @@ static void rtl8188fu_phy_iqcalibrate(struct rtl8xxxu_priv *priv,
 
 static void rtl8188fu_phy_iq_calibrate(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	struct device *dev = &priv->udev->dev;
 	int result[4][8]; /* last is final result */
 	int i, candidate;
@@ -1317,6 +1333,7 @@ static void rtl8188fu_phy_iq_calibrate(struct rtl8xxxu_priv *priv)
 
 static void rtl8188f_disabled_to_emu(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	u16 val8;
 
 	/* 0x04[12:11] = 2b'01enable WL suspend */
@@ -1332,6 +1349,7 @@ static void rtl8188f_disabled_to_emu(struct rtl8xxxu_priv *priv)
 
 static int rtl8188f_emu_to_active(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	u8 val8;
 	u32 val32;
 	int count, ret = 0;
@@ -1392,6 +1410,7 @@ exit:
 
 static int rtl8188fu_active_to_emu(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	u8 val8;
 	u32 val32;
 	int count, ret = 0;
@@ -1432,6 +1451,7 @@ exit:
 
 static int rtl8188fu_emu_to_disabled(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	u8 val8;
 
 	/* 0x04[12:11] = 2b'01 enable WL suspend */
@@ -1450,6 +1470,7 @@ static int rtl8188fu_emu_to_disabled(struct rtl8xxxu_priv *priv)
 
 static int rtl8188fu_active_to_lps(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	struct device *dev = &priv->udev->dev;
 	u8 val8;
 	u16 val16;
@@ -1513,6 +1534,7 @@ out:
 
 static int rtl8188fu_power_on(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	u16 val16;
 	int ret;
 
@@ -1538,6 +1560,7 @@ exit:
 
 static void rtl8188fu_power_off(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	u8 val8;
 	u16 val16;
 
@@ -1581,6 +1604,7 @@ static void rtl8188fu_power_off(struct rtl8xxxu_priv *priv)
 
 static void rtl8188f_enable_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	u32 val32;
 	u8 pg_pwrtrim = 0xff, val8;
 	s8 bb_gain;
@@ -1620,6 +1644,7 @@ static void rtl8188f_enable_rf(struct rtl8xxxu_priv *priv)
 
 static void rtl8188f_disable_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	u32 val32;
 
 	val32 = rtl8xxxu_read32(priv, REG_OFDM0_TRX_PATH_ENABLE);
@@ -1632,6 +1657,7 @@ static void rtl8188f_disable_rf(struct rtl8xxxu_priv *priv)
 
 static void rtl8188f_usb_quirks(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	u16 val16;
 	u32 val32;
 
@@ -1649,6 +1675,7 @@ static void rtl8188f_usb_quirks(struct rtl8xxxu_priv *priv)
 
 void rtl8188f_set_crystal_cap(struct rtl8xxxu_priv *priv, u8 crystal_cap)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	struct rtl8xxxu_cfo_tracking *cfo = &priv->cfo_tracking;
 	u32 val32;
 
@@ -1675,6 +1702,7 @@ void rtl8188f_set_crystal_cap(struct rtl8xxxu_priv *priv, u8 crystal_cap)
 
 static s8 rtl8188f_cck_rssi(struct rtl8xxxu_priv *priv, struct rtl8723au_phy_stats *phy_stats)
 {
+	printk(KERN_DEBUG "8188f.c - ");
 	u8 cck_agc_rpt = phy_stats->cck_agc_rpt_ofdm_cfosho_a;
 	s8 rx_pwr_all = 0x00;
 	u8 vga_idx, lna_idx;

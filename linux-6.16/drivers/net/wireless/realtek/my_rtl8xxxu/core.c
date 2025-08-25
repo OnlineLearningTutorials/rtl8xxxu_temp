@@ -613,7 +613,7 @@ const u32 rtl8xxxu_iqk_phy_iq_bb_reg[RTL8XXXU_BB_REGS] = {
 
 u8 rtl8xxxu_read8(struct rtl8xxxu_priv *priv, u16 addr)
 {
-	printk(KERN_DEBUG "core.c - ");
+	printk(KERN_DEBUG "core.c - rtl8xxxu_read8");
 	struct usb_device *udev = priv->udev;
 	int len;
 	u8 data;
@@ -637,6 +637,7 @@ u8 rtl8xxxu_read8(struct rtl8xxxu_priv *priv, u16 addr)
 
 u16 rtl8xxxu_read16(struct rtl8xxxu_priv *priv, u16 addr)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_read16");
 	struct usb_device *udev = priv->udev;
 	int len;
 	u16 data;
@@ -660,6 +661,7 @@ u16 rtl8xxxu_read16(struct rtl8xxxu_priv *priv, u16 addr)
 
 u32 rtl8xxxu_read32(struct rtl8xxxu_priv *priv, u16 addr)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_read32");
 	struct usb_device *udev = priv->udev;
 	int len;
 	u32 data;
@@ -683,6 +685,7 @@ u32 rtl8xxxu_read32(struct rtl8xxxu_priv *priv, u16 addr)
 
 int rtl8xxxu_write8(struct rtl8xxxu_priv *priv, u16 addr, u8 val)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_write8");
 	struct usb_device *udev = priv->udev;
 	int ret;
 
@@ -706,6 +709,7 @@ int rtl8xxxu_write8(struct rtl8xxxu_priv *priv, u16 addr, u8 val)
 
 int rtl8xxxu_write16(struct rtl8xxxu_priv *priv, u16 addr, u16 val)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_write16");
 	struct usb_device *udev = priv->udev;
 	int ret;
 
@@ -728,6 +732,7 @@ int rtl8xxxu_write16(struct rtl8xxxu_priv *priv, u16 addr, u16 val)
 
 int rtl8xxxu_write32(struct rtl8xxxu_priv *priv, u16 addr, u32 val)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_write32");
 	struct usb_device *udev = priv->udev;
 	int ret;
 
@@ -750,6 +755,7 @@ int rtl8xxxu_write32(struct rtl8xxxu_priv *priv, u16 addr, u32 val)
 
 int rtl8xxxu_write8_set(struct rtl8xxxu_priv *priv, u16 addr, u8 bits)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_write8_set");
 	u8 val8;
 
 	val8 = rtl8xxxu_read8(priv, addr);
@@ -759,6 +765,7 @@ int rtl8xxxu_write8_set(struct rtl8xxxu_priv *priv, u16 addr, u8 bits)
 
 int rtl8xxxu_write8_clear(struct rtl8xxxu_priv *priv, u16 addr, u8 bits)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_write8_clear");
 	u8 val8;
 
 	val8 = rtl8xxxu_read8(priv, addr);
@@ -768,6 +775,7 @@ int rtl8xxxu_write8_clear(struct rtl8xxxu_priv *priv, u16 addr, u8 bits)
 
 int rtl8xxxu_write16_set(struct rtl8xxxu_priv *priv, u16 addr, u16 bits)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_write16_set");
 	u16 val16;
 
 	val16 = rtl8xxxu_read16(priv, addr);
@@ -777,6 +785,7 @@ int rtl8xxxu_write16_set(struct rtl8xxxu_priv *priv, u16 addr, u16 bits)
 
 int rtl8xxxu_write16_clear(struct rtl8xxxu_priv *priv, u16 addr, u16 bits)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_write16_clear");
 	u16 val16;
 
 	val16 = rtl8xxxu_read16(priv, addr);
@@ -786,6 +795,7 @@ int rtl8xxxu_write16_clear(struct rtl8xxxu_priv *priv, u16 addr, u16 bits)
 
 int rtl8xxxu_write32_set(struct rtl8xxxu_priv *priv, u16 addr, u32 bits)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_write32_set");
 	u32 val32;
 
 	val32 = rtl8xxxu_read32(priv, addr);
@@ -795,6 +805,7 @@ int rtl8xxxu_write32_set(struct rtl8xxxu_priv *priv, u16 addr, u32 bits)
 
 int rtl8xxxu_write32_clear(struct rtl8xxxu_priv *priv, u16 addr, u32 bits)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_write32_clear");
 	u32 val32;
 
 	val32 = rtl8xxxu_read32(priv, addr);
@@ -805,6 +816,7 @@ int rtl8xxxu_write32_clear(struct rtl8xxxu_priv *priv, u16 addr, u32 bits)
 int rtl8xxxu_write32_mask(struct rtl8xxxu_priv *priv, u16 addr,
 			  u32 mask, u32 val)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_write32_mask");
 	u32 orig, new, shift;
 
 	shift = __ffs(mask);
@@ -818,6 +830,7 @@ int rtl8xxxu_write_rfreg_mask(struct rtl8xxxu_priv *priv,
 			      enum rtl8xxxu_rfpath path, u8 reg,
 			      u32 mask, u32 val)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_write_rfreg_mask");
 	u32 orig, new, shift;
 
 	shift = __ffs(mask);
@@ -830,6 +843,7 @@ int rtl8xxxu_write_rfreg_mask(struct rtl8xxxu_priv *priv,
 static int
 rtl8xxxu_writeN(struct rtl8xxxu_priv *priv, u16 addr, u8 *buf, u16 len)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_writeN");
 	struct usb_device *udev = priv->udev;
 	int blocksize = priv->fops->writeN_block_size;
 	int ret, i, count, remainder;
@@ -871,6 +885,7 @@ write_error:
 u32 rtl8xxxu_read_rfreg(struct rtl8xxxu_priv *priv,
 			enum rtl8xxxu_rfpath path, u8 reg)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_read_rfreg");
 	u32 hssia, val32, retval;
 
 	hssia = rtl8xxxu_read32(priv, REG_FPGA0_XA_HSSI_PARM2);
@@ -916,6 +931,7 @@ u32 rtl8xxxu_read_rfreg(struct rtl8xxxu_priv *priv,
 int rtl8xxxu_write_rfreg(struct rtl8xxxu_priv *priv,
 			 enum rtl8xxxu_rfpath path, u8 reg, u32 data)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_write_rfreg");
 	int ret, retval;
 	u32 dataaddr, val32;
 
@@ -953,6 +969,7 @@ int rtl8xxxu_write_rfreg(struct rtl8xxxu_priv *priv,
 static int
 rtl8xxxu_gen1_h2c_cmd(struct rtl8xxxu_priv *priv, struct h2c_cmd *h2c, int len)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen1_h2c_cmd");
 	struct device *dev = &priv->udev->dev;
 	int mbox_nr, retry, retval = 0;
 	int mbox_reg, mbox_ext_reg;
@@ -1003,6 +1020,7 @@ error:
 int
 rtl8xxxu_gen2_h2c_cmd(struct rtl8xxxu_priv *priv, struct h2c_cmd *h2c, int len)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen2_h2c_cmd");
 	struct device *dev = &priv->udev->dev;
 	int mbox_nr, retry, retval = 0;
 	int mbox_reg, mbox_ext_reg;
@@ -1053,6 +1071,7 @@ error:
 
 void rtl8xxxu_gen1_enable_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen1_enable_rf");
 	u8 val8;
 	u32 val32;
 
@@ -1097,6 +1116,7 @@ void rtl8xxxu_gen1_enable_rf(struct rtl8xxxu_priv *priv)
 
 void rtl8xxxu_gen1_disable_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen1_disable_rf");
 	u8 sps0;
 	u32 val32;
 
@@ -1136,6 +1156,7 @@ void rtl8xxxu_gen1_disable_rf(struct rtl8xxxu_priv *priv)
 
 static void rtl8xxxu_stop_tx_beacon(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_stop_tx_beacon");
 	u8 val8;
 
 	val8 = rtl8xxxu_read8(priv, REG_FWHW_TXQ_CTRL + 2);
@@ -1150,6 +1171,7 @@ static void rtl8xxxu_stop_tx_beacon(struct rtl8xxxu_priv *priv)
 
 static void rtl8xxxu_start_tx_beacon(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_start_tx_beacon");
 	u8 val8;
 
 	val8 = rtl8xxxu_read8(priv, REG_FWHW_TXQ_CTRL + 2);
@@ -1174,6 +1196,7 @@ static void rtl8xxxu_start_tx_beacon(struct rtl8xxxu_priv *priv)
  */
 static int rtl8xxxu_gen1_channel_to_group(int channel)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen1_channel_to_group");
 	int group;
 
 	if (channel < 4)
@@ -1191,6 +1214,7 @@ static int rtl8xxxu_gen1_channel_to_group(int channel)
  */
 int rtl8xxxu_gen2_channel_to_group(int channel)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen2_channel_to_group");
 	int group;
 
 	if (channel < 3)
@@ -1209,6 +1233,7 @@ int rtl8xxxu_gen2_channel_to_group(int channel)
 
 void rtl8xxxu_gen1_config_channel(struct ieee80211_hw *hw)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen1_config_channel");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	u32 val32, rsr;
 	u8 val8, opmode;
@@ -1332,6 +1357,7 @@ void rtl8xxxu_gen1_config_channel(struct ieee80211_hw *hw)
 
 void rtl8xxxu_gen2_config_channel(struct ieee80211_hw *hw)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen2_config_channel");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	u32 val32;
 	u8 val8, subchannel;
@@ -1463,6 +1489,7 @@ void rtl8xxxu_gen2_config_channel(struct ieee80211_hw *hw)
 void
 rtl8xxxu_gen1_set_tx_power(struct rtl8xxxu_priv *priv, int channel, bool ht40)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen1_set_tx_power");
 	struct rtl8xxxu_power_base *power_base = priv->power_base;
 	u8 cck[RTL8723A_MAX_RF_PATHS], ofdm[RTL8723A_MAX_RF_PATHS];
 	u8 ofdmbase[RTL8723A_MAX_RF_PATHS], mcsbase[RTL8723A_MAX_RF_PATHS];
@@ -1592,6 +1619,7 @@ rtl8xxxu_gen1_set_tx_power(struct rtl8xxxu_priv *priv, int channel, bool ht40)
 static void rtl8xxxu_set_linktype(struct rtl8xxxu_priv *priv,
 				  enum nl80211_iftype linktype, int port_num)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_set_linktype");
 	u8 val8, type;
 
 	switch (linktype) {
@@ -1630,6 +1658,7 @@ static void rtl8xxxu_set_linktype(struct rtl8xxxu_priv *priv,
 static void
 rtl8xxxu_set_retry(struct rtl8xxxu_priv *priv, u16 short_retry, u16 long_retry)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_set_retry");
 	u16 val16;
 
 	val16 = ((short_retry << RETRY_LIMIT_SHORT_SHIFT) &
@@ -1643,6 +1672,7 @@ rtl8xxxu_set_retry(struct rtl8xxxu_priv *priv, u16 short_retry, u16 long_retry)
 static void
 rtl8xxxu_set_spec_sifs(struct rtl8xxxu_priv *priv, u16 cck, u16 ofdm)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_set_spec_sifs");
 	u16 val16;
 
 	val16 = ((cck << SPEC_SIFS_CCK_SHIFT) & SPEC_SIFS_CCK_MASK) |
@@ -1653,6 +1683,7 @@ rtl8xxxu_set_spec_sifs(struct rtl8xxxu_priv *priv, u16 cck, u16 ofdm)
 
 static void rtl8xxxu_print_chipinfo(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_print_chipinfo");
 	struct device *dev = &priv->udev->dev;
 	char cut = 'A' + priv->chip_cut;
 
@@ -1668,6 +1699,7 @@ static void rtl8xxxu_print_chipinfo(struct rtl8xxxu_priv *priv)
 
 void rtl8xxxu_identify_vendor_1bit(struct rtl8xxxu_priv *priv, u32 vendor)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_identify_vendor_1bit");
 	if (vendor) {
 		strscpy(priv->chip_vendor, "UMC", sizeof(priv->chip_vendor));
 		priv->vendor_umc = 1;
@@ -1678,6 +1710,7 @@ void rtl8xxxu_identify_vendor_1bit(struct rtl8xxxu_priv *priv, u32 vendor)
 
 void rtl8xxxu_identify_vendor_2bits(struct rtl8xxxu_priv *priv, u32 vendor)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_identify_vendor_2bits");
 	switch (vendor) {
 	case SYS_CFG_VENDOR_ID_TSMC:
 		strscpy(priv->chip_vendor, "TSMC", sizeof(priv->chip_vendor));
@@ -1697,6 +1730,7 @@ void rtl8xxxu_identify_vendor_2bits(struct rtl8xxxu_priv *priv, u32 vendor)
 
 void rtl8xxxu_config_endpoints_sie(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_config_endpoints_sie");
 	u16 val16;
 
 	val16 = rtl8xxxu_read16(priv, REG_NORMAL_SIE_EP_TX);
@@ -1719,6 +1753,7 @@ void rtl8xxxu_config_endpoints_sie(struct rtl8xxxu_priv *priv)
 
 int rtl8xxxu_config_endpoints_no_sie(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_config_endpoints_no_sie");
 	struct device *dev = &priv->udev->dev;
 
 	switch (priv->nr_out_eps) {
@@ -1748,6 +1783,7 @@ int rtl8xxxu_config_endpoints_no_sie(struct rtl8xxxu_priv *priv)
 int
 rtl8xxxu_read_efuse8(struct rtl8xxxu_priv *priv, u16 offset, u8 *data)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_read_efuse8");
 	int i;
 	u8 val8;
 	u32 val32;
@@ -1782,6 +1818,7 @@ rtl8xxxu_read_efuse8(struct rtl8xxxu_priv *priv, u16 offset, u8 *data)
 
 int rtl8xxxu_read_efuse(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_read_efuse");
 	struct device *dev = &priv->udev->dev;
 	int i, ret = 0;
 	u8 val8, word_mask, header, extheader;
@@ -1894,6 +1931,7 @@ exit:
 
 static void rtl8xxxu_dump_efuse(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_dump_efuse");
 	dev_info(&priv->udev->dev,
 		 "Dumping efuse for RTL%s (0x%02x bytes):\n",
 		 priv->chip_name, EFUSE_MAP_LEN);
@@ -1904,6 +1942,7 @@ static void rtl8xxxu_dump_efuse(struct rtl8xxxu_priv *priv)
 
 void rtl8xxxu_reset_8051(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_reset_8051");
 	u8 val8;
 	u16 sys_func;
 
@@ -1925,6 +1964,7 @@ void rtl8xxxu_reset_8051(struct rtl8xxxu_priv *priv)
 
 static int rtl8xxxu_start_firmware(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_start_firmware");
 	struct device *dev = &priv->udev->dev;
 	u16 reg_mcu_fw_dl;
 	int ret = 0, i;
@@ -1985,6 +2025,7 @@ exit:
 
 static int rtl8xxxu_download_firmware(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_download_firmware");
 	int pages, remainder, i, ret;
 	u16 reg_fw_start_address;
 	u16 reg_mcu_fw_dl;
@@ -2087,6 +2128,7 @@ fw_abort:
 
 int rtl8xxxu_load_firmware(struct rtl8xxxu_priv *priv, const char *fw_name)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_load_firmware");
 	struct device *dev = &priv->udev->dev;
 	const struct firmware *fw;
 	int ret = 0;
@@ -2140,6 +2182,7 @@ exit:
 
 void rtl8xxxu_firmware_self_reset(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_firmware_self_reset");
 	u16 val16;
 	int i = 100;
 
@@ -2168,6 +2211,7 @@ void rtl8xxxu_firmware_self_reset(struct rtl8xxxu_priv *priv)
 static int
 rtl8xxxu_init_mac(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_init_mac");
 	const struct rtl8xxxu_reg8val *array = priv->fops->mactable;
 	int i, ret;
 	u16 reg;
@@ -2210,6 +2254,7 @@ rtl8xxxu_init_mac(struct rtl8xxxu_priv *priv)
 int rtl8xxxu_init_phy_regs(struct rtl8xxxu_priv *priv,
 			   const struct rtl8xxxu_reg32val *array)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_init_phy_regs");
 	int i, ret;
 	u16 reg;
 	u32 val;
@@ -2235,6 +2280,7 @@ int rtl8xxxu_init_phy_regs(struct rtl8xxxu_priv *priv,
 
 void rtl8xxxu_gen1_init_phy_bb(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen1_init_phy_bb");
 	u8 val8, ldoa15, ldov12d, lpldo, ldohci12;
 	u16 val16;
 	u32 val32;
@@ -2291,6 +2337,7 @@ void rtl8xxxu_gen1_init_phy_bb(struct rtl8xxxu_priv *priv)
  */
 static int rtl8xxxu_init_phy_bb(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_init_phy_bb");
 	u32 val32;
 
 	priv->fops->init_phy_bb(priv);
@@ -2368,6 +2415,7 @@ static int rtl8xxxu_init_rf_regs(struct rtl8xxxu_priv *priv,
 				 const struct rtl8xxxu_rfregval *array,
 				 enum rtl8xxxu_rfpath path)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_init_rf_regs");
 	int i, ret;
 	u8 reg;
 	u32 val;
@@ -2416,6 +2464,7 @@ int rtl8xxxu_init_phy_rf(struct rtl8xxxu_priv *priv,
 			 const struct rtl8xxxu_rfregval *table,
 			 enum rtl8xxxu_rfpath path)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_init_phy_rf");
 	u32 val32;
 	u16 val16, rfsi_rfenv;
 	u16 reg_sw_ctrl, reg_int_oe, reg_hssi_parm2;
@@ -2479,6 +2528,7 @@ int rtl8xxxu_init_phy_rf(struct rtl8xxxu_priv *priv,
 
 static int rtl8xxxu_llt_write(struct rtl8xxxu_priv *priv, u8 address, u8 data)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_llt_write");
 	int ret = -EBUSY;
 	int count = 0;
 	u32 value;
@@ -2500,6 +2550,7 @@ static int rtl8xxxu_llt_write(struct rtl8xxxu_priv *priv, u8 address, u8 data)
 
 int rtl8xxxu_init_llt_table(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_init_llt_table");
 	int ret;
 	int i, last_entry;
 	u8 last_tx_page;
@@ -2539,6 +2590,7 @@ exit:
 
 int rtl8xxxu_auto_llt_table(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_auto_llt_table");
 	u32 val32;
 	int ret = 0;
 	int i;
@@ -2564,6 +2616,7 @@ int rtl8xxxu_auto_llt_table(struct rtl8xxxu_priv *priv)
 
 static int rtl8xxxu_init_queue_priority(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_init_queue_priority");
 	u16 val16, hi, lo;
 	u16 hiq, mgq, bkq, beq, viq, voq;
 	int hip, mgp, bkp, bep, vip, vop;
@@ -2698,6 +2751,7 @@ static int rtl8xxxu_init_queue_priority(struct rtl8xxxu_priv *priv)
 void rtl8xxxu_fill_iqk_matrix_a(struct rtl8xxxu_priv *priv, bool iqk_ok,
 				int result[][8], int candidate, bool tx_only)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_fill_iqk_matrix_a");
 	u32 oldval, x, tx0_a, reg;
 	int y, tx0_c;
 	u32 val32;
@@ -2775,6 +2829,7 @@ void rtl8xxxu_fill_iqk_matrix_a(struct rtl8xxxu_priv *priv, bool iqk_ok,
 void rtl8xxxu_fill_iqk_matrix_b(struct rtl8xxxu_priv *priv, bool iqk_ok,
 				int result[][8], int candidate, bool tx_only)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_fill_iqk_matrix_b");
 	u32 oldval, x, tx1_a, reg;
 	int y, tx1_c;
 	u32 val32;
@@ -2858,6 +2913,7 @@ void rtl8xxxu_fill_iqk_matrix_b(struct rtl8xxxu_priv *priv, bool iqk_ok,
 bool rtl8xxxu_simularity_compare(struct rtl8xxxu_priv *priv,
 				 int result[][8], int c1, int c2)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_simularity_compare");
 	u32 i, j, diff, simubitmap, bound = 0;
 	int candidate[2] = {-1, -1};	/* for path A and path B */
 	bool retval = true;
@@ -2912,6 +2968,7 @@ bool rtl8xxxu_simularity_compare(struct rtl8xxxu_priv *priv,
 bool rtl8xxxu_gen2_simularity_compare(struct rtl8xxxu_priv *priv,
 				      int result[][8], int c1, int c2)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen2_simularity_compare");
 	u32 i, j, diff, simubitmap, bound = 0;
 	int candidate[2] = {-1, -1};	/* for path A and path B */
 	int tmp1, tmp2;
@@ -2997,6 +3054,7 @@ bool rtl8xxxu_gen2_simularity_compare(struct rtl8xxxu_priv *priv,
 void
 rtl8xxxu_save_mac_regs(struct rtl8xxxu_priv *priv, const u32 *reg, u32 *backup)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_save_mac_regs");
 	int i;
 
 	for (i = 0; i < (RTL8XXXU_MAC_REGS - 1); i++)
@@ -3008,6 +3066,7 @@ rtl8xxxu_save_mac_regs(struct rtl8xxxu_priv *priv, const u32 *reg, u32 *backup)
 void rtl8xxxu_restore_mac_regs(struct rtl8xxxu_priv *priv,
 			       const u32 *reg, u32 *backup)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_restore_mac_regs");
 	int i;
 
 	for (i = 0; i < (RTL8XXXU_MAC_REGS - 1); i++)
@@ -3019,6 +3078,7 @@ void rtl8xxxu_restore_mac_regs(struct rtl8xxxu_priv *priv,
 void rtl8xxxu_save_regs(struct rtl8xxxu_priv *priv, const u32 *regs,
 			u32 *backup, int count)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_save_regs");
 	int i;
 
 	for (i = 0; i < count; i++)
@@ -3028,6 +3088,7 @@ void rtl8xxxu_save_regs(struct rtl8xxxu_priv *priv, const u32 *regs,
 void rtl8xxxu_restore_regs(struct rtl8xxxu_priv *priv, const u32 *regs,
 			   u32 *backup, int count)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_restore_regs");
 	int i;
 
 	for (i = 0; i < count; i++)
@@ -3038,6 +3099,7 @@ void rtl8xxxu_restore_regs(struct rtl8xxxu_priv *priv, const u32 *regs,
 void rtl8xxxu_path_adda_on(struct rtl8xxxu_priv *priv, const u32 *regs,
 			   bool path_a_on)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_path_adda_on");
 	u32 path_on;
 	int i;
 
@@ -3058,6 +3120,7 @@ void rtl8xxxu_path_adda_on(struct rtl8xxxu_priv *priv, const u32 *regs,
 void rtl8xxxu_mac_calibration(struct rtl8xxxu_priv *priv,
 			      const u32 *regs, u32 *backup)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_mac_calibration");
 	int i = 0;
 
 	rtl8xxxu_write8(priv, regs[i], 0x3f);
@@ -3070,6 +3133,7 @@ void rtl8xxxu_mac_calibration(struct rtl8xxxu_priv *priv,
 
 static int rtl8xxxu_iqk_path_a(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_iqk_path_a");
 	u32 reg_eac, reg_e94, reg_e9c, reg_ea4, val32;
 	int result = 0;
 
@@ -3127,6 +3191,7 @@ out:
 
 static int rtl8xxxu_iqk_path_b(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_iqk_path_b");
 	u32 reg_eac, reg_eb4, reg_ebc, reg_ec4, reg_ecc;
 	int result = 0;
 
@@ -3164,6 +3229,7 @@ out:
 static void rtl8xxxu_phy_iqcalibrate(struct rtl8xxxu_priv *priv,
 				     int result[][8], int t)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_phy_iqcalibrate");
 	struct device *dev = &priv->udev->dev;
 	u32 i, val32;
 	int path_a_ok, path_b_ok;
@@ -3368,6 +3434,7 @@ static void rtl8xxxu_phy_iqcalibrate(struct rtl8xxxu_priv *priv,
 
 void rtl8xxxu_gen2_prepare_calibrate(struct rtl8xxxu_priv *priv, u8 start)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen2_prepare_calibrate");
 	struct h2c_cmd h2c;
 
 	memset(&h2c, 0, sizeof(struct h2c_cmd));
@@ -3379,6 +3446,7 @@ void rtl8xxxu_gen2_prepare_calibrate(struct rtl8xxxu_priv *priv, u8 start)
 
 void rtl8xxxu_gen1_phy_iq_calibrate(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen1_phy_iq_calibrate");
 	struct device *dev = &priv->udev->dev;
 	int result[4][8];	/* last is final result */
 	int i, candidate;
@@ -3479,6 +3547,7 @@ void rtl8xxxu_gen1_phy_iq_calibrate(struct rtl8xxxu_priv *priv)
 
 void rtl8723a_phy_lc_calibrate(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8723a_phy_lc_calibrate");
 	u32 val32;
 	u32 rf_amode, rf_bmode = 0, lstf;
 
@@ -3539,6 +3608,7 @@ void rtl8723a_phy_lc_calibrate(struct rtl8xxxu_priv *priv)
 
 static int rtl8xxxu_set_mac(struct rtl8xxxu_priv *priv, int port_num)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_set_mac");
 	int i;
 	u16 reg;
 
@@ -3562,6 +3632,7 @@ static int rtl8xxxu_set_mac(struct rtl8xxxu_priv *priv, int port_num)
 
 static int rtl8xxxu_set_bssid(struct rtl8xxxu_priv *priv, const u8 *bssid, int port_num)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_set_bssid");
 	int i;
 	u16 reg;
 
@@ -3588,6 +3659,7 @@ static int rtl8xxxu_set_bssid(struct rtl8xxxu_priv *priv, const u8 *bssid, int p
 static void
 rtl8xxxu_set_ampdu_factor(struct rtl8xxxu_priv *priv, u8 ampdu_factor)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_set_ampdu_factor");
 	u8 vals[4] = { 0x41, 0xa8, 0x72, 0xb9 };
 	u8 max_agg = 0xf;
 	int i;
@@ -3609,6 +3681,7 @@ rtl8xxxu_set_ampdu_factor(struct rtl8xxxu_priv *priv, u8 ampdu_factor)
 
 static void rtl8xxxu_set_ampdu_min_space(struct rtl8xxxu_priv *priv, u8 density)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_set_ampdu_min_space");
 	u8 val8;
 
 	val8 = rtl8xxxu_read8(priv, REG_AMPDU_MIN_SPACE);
@@ -3619,6 +3692,7 @@ static void rtl8xxxu_set_ampdu_min_space(struct rtl8xxxu_priv *priv, u8 density)
 
 static int rtl8xxxu_active_to_emu(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_active_to_emu");
 	u8 val8;
 	int count, ret = 0;
 
@@ -3667,6 +3741,7 @@ exit:
 
 int rtl8xxxu_active_to_lps(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_active_to_lps");
 	u8 val8;
 	u8 val32;
 	int count, ret = 0;
@@ -3723,6 +3798,7 @@ exit:
 
 void rtl8xxxu_disabled_to_emu(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_disabled_to_emu");
 	u8 val8;
 
 	/* Clear suspend enable and power down enable*/
@@ -3743,6 +3819,7 @@ void rtl8xxxu_disabled_to_emu(struct rtl8xxxu_priv *priv)
 
 static int rtl8xxxu_emu_to_disabled(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_emu_to_disabled");
 	u8 val8;
 
 	/* 0x0007[7:0] = 0x20 SOP option to disable BG/MB */
@@ -3768,6 +3845,7 @@ static int rtl8xxxu_emu_to_disabled(struct rtl8xxxu_priv *priv)
 
 int rtl8xxxu_flush_fifo(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_flush_fifo");
 	struct device *dev = &priv->udev->dev;
 	u32 val32;
 	int retry, retval;
@@ -3801,6 +3879,7 @@ int rtl8xxxu_flush_fifo(struct rtl8xxxu_priv *priv)
 
 void rtl8xxxu_gen1_usb_quirks(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen1_usb_quirks");
 	/* Fix USB interface interference issue */
 	rtl8xxxu_write8(priv, 0xfe40, 0xe0);
 	rtl8xxxu_write8(priv, 0xfe41, 0x8d);
@@ -3836,6 +3915,7 @@ void rtl8xxxu_gen1_usb_quirks(struct rtl8xxxu_priv *priv)
 
 void rtl8xxxu_gen2_usb_quirks(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen2_usb_quirks");
 	u32 val32;
 
 	val32 = rtl8xxxu_read32(priv, REG_TXDMA_OFFSET_CHK);
@@ -3845,6 +3925,7 @@ void rtl8xxxu_gen2_usb_quirks(struct rtl8xxxu_priv *priv)
 
 void rtl8xxxu_power_off(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_power_off");
 	u8 val8;
 	u16 val16;
 	u32 val32;
@@ -3896,6 +3977,7 @@ void rtl8xxxu_power_off(struct rtl8xxxu_priv *priv)
 void rtl8723bu_set_ps_tdma(struct rtl8xxxu_priv *priv,
 			   u8 arg1, u8 arg2, u8 arg3, u8 arg4, u8 arg5)
 {
+	printk(KERN_DEBUG "core.c - rtl8723bu_set_ps_tdma");
 	struct h2c_cmd h2c;
 
 	memset(&h2c, 0, sizeof(struct h2c_cmd));
@@ -3910,6 +3992,7 @@ void rtl8723bu_set_ps_tdma(struct rtl8xxxu_priv *priv,
 
 void rtl8xxxu_gen2_disable_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen2_disable_rf");
 	u32 val32;
 
 	val32 = rtl8xxxu_read32(priv, REG_RX_WAIT_CCA);
@@ -3919,6 +4002,7 @@ void rtl8xxxu_gen2_disable_rf(struct rtl8xxxu_priv *priv)
 
 static void rtl8xxxu_init_queue_reserved_page(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_init_queue_reserved_page");
 	struct rtl8xxxu_fileops *fops = priv->fops;
 	u32 hq, lq, nq, eq, pubq;
 	u32 val32;
@@ -3951,6 +4035,7 @@ static void rtl8xxxu_init_queue_reserved_page(struct rtl8xxxu_priv *priv)
 
 void rtl8xxxu_init_burst(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_init_burst");
 	u8 val8;
 
 	/*
@@ -3991,6 +4076,7 @@ void rtl8xxxu_init_burst(struct rtl8xxxu_priv *priv)
 
 static u8 rtl8xxxu_acquire_macid(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_acquire_macid");
 	u8 macid;
 
 	macid = find_first_zero_bit(priv->mac_id_map, RTL8XXXU_MAX_MAC_ID_NUM);
@@ -4002,12 +4088,14 @@ static u8 rtl8xxxu_acquire_macid(struct rtl8xxxu_priv *priv)
 
 static void rtl8xxxu_release_macid(struct rtl8xxxu_priv *priv, u8 macid)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_release_macid");
 	clear_bit(macid, priv->mac_id_map);
 }
 
 static inline u8 rtl8xxxu_get_macid(struct rtl8xxxu_priv *priv,
 				    struct ieee80211_sta *sta)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_get_macid");
 	struct rtl8xxxu_sta_info *sta_info;
 
 	if (!sta)
@@ -4022,6 +4110,7 @@ static inline u8 rtl8xxxu_get_macid(struct rtl8xxxu_priv *priv,
 
 static int rtl8xxxu_init_device(struct ieee80211_hw *hw)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_init_device");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	struct device *dev = &priv->udev->dev;
 	struct rtl8xxxu_fileops *fops = priv->fops;
@@ -4511,6 +4600,7 @@ exit:
 static void rtl8xxxu_cam_write(struct rtl8xxxu_priv *priv,
 			       struct ieee80211_key_conf *key, const u8 *mac)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_cam_write");
 	u32 cmd, val32, addr, ctrl;
 	int j, i, tmp_debug;
 
@@ -4555,6 +4645,7 @@ static void rtl8xxxu_cam_write(struct rtl8xxxu_priv *priv,
 static
 int rtl8xxxu_get_antenna(struct ieee80211_hw *hw, u32 *tx_ant, u32 *rx_ant)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_get_antenna");
 	struct rtl8xxxu_priv *priv = hw->priv;
 
 	*tx_ant = BIT(priv->tx_paths) - 1;
@@ -4566,6 +4657,7 @@ int rtl8xxxu_get_antenna(struct ieee80211_hw *hw, u32 *tx_ant, u32 *rx_ant)
 static int rtl8xxxu_set_tim(struct ieee80211_hw *hw, struct ieee80211_sta *sta,
 			    bool set)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_set_tim");
 	struct rtl8xxxu_priv *priv = hw->priv;
 
 	schedule_delayed_work(&priv->update_beacon_work, 0);
@@ -4576,6 +4668,7 @@ static int rtl8xxxu_set_tim(struct ieee80211_hw *hw, struct ieee80211_sta *sta,
 static void rtl8xxxu_sw_scan_start(struct ieee80211_hw *hw,
 				   struct ieee80211_vif *vif, const u8 *mac)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_sw_scan_start");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	u8 val8;
 
@@ -4587,6 +4680,7 @@ static void rtl8xxxu_sw_scan_start(struct ieee80211_hw *hw,
 static void rtl8xxxu_sw_scan_complete(struct ieee80211_hw *hw,
 				      struct ieee80211_vif *vif)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_sw_scan_complete");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	u8 val8;
 
@@ -4599,6 +4693,7 @@ void rtl8xxxu_update_rate_mask(struct rtl8xxxu_priv *priv,
 			       u32 ramask, u8 rateid, int sgi, int txbw_40mhz,
 			       u8 macid)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_update_rate_mask");
 	struct h2c_cmd h2c;
 
 	memset(&h2c, 0, sizeof(struct h2c_cmd));
@@ -4620,6 +4715,7 @@ void rtl8xxxu_gen2_update_rate_mask(struct rtl8xxxu_priv *priv,
 				    u32 ramask, u8 rateid, int sgi, int txbw_40mhz,
 				    u8 macid)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen2_update_rate_mask");
 	struct h2c_cmd h2c;
 	u8 bw;
 
@@ -4651,6 +4747,7 @@ void rtl8xxxu_gen2_update_rate_mask(struct rtl8xxxu_priv *priv,
 void rtl8xxxu_gen1_report_connect(struct rtl8xxxu_priv *priv,
 				  u8 macid, u8 role, bool connect)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen1_report_connect");
 	struct h2c_cmd h2c;
 
 	memset(&h2c, 0, sizeof(struct h2c_cmd));
@@ -4668,6 +4765,7 @@ void rtl8xxxu_gen1_report_connect(struct rtl8xxxu_priv *priv,
 void rtl8xxxu_gen2_report_connect(struct rtl8xxxu_priv *priv,
 				  u8 macid, u8 role, bool connect)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen2_report_connect");
 	/*
 	 * The firmware turns on the rate control when it knows it's
 	 * connected to a network.
@@ -4690,6 +4788,7 @@ void rtl8xxxu_gen2_report_connect(struct rtl8xxxu_priv *priv,
 
 void rtl8xxxu_gen1_report_rssi(struct rtl8xxxu_priv *priv, u8 macid, u8 rssi)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen1_report_rssi");
 	struct h2c_cmd h2c;
 	const int h2c_size = 4;
 
@@ -4704,6 +4803,7 @@ void rtl8xxxu_gen1_report_rssi(struct rtl8xxxu_priv *priv, u8 macid, u8 rssi)
 
 void rtl8xxxu_gen2_report_rssi(struct rtl8xxxu_priv *priv, u8 macid, u8 rssi)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen2_report_rssi");
 	struct h2c_cmd h2c;
 	int h2c_size = sizeof(h2c.rssi_report);
 
@@ -4721,6 +4821,7 @@ void rtl8xxxu_gen2_report_rssi(struct rtl8xxxu_priv *priv, u8 macid, u8 rssi)
 
 void rtl8xxxu_gen1_init_aggregation(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_gen1_init_aggregation");
 	u8 agg_ctrl, usb_spec, page_thresh, timeout;
 
 	usb_spec = rtl8xxxu_read8(priv, REG_USB_SPECIAL_OPTION);
@@ -4803,6 +4904,7 @@ static const struct ieee80211_rate rtl8xxxu_legacy_ratetable[] = {
 
 static void rtl8xxxu_desc_to_mcsrate(u16 rate, u8 *mcs, u8 *nss)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_desc_to_mcsrate");
 	if (rate <= DESC_RATE_54M)
 		return;
 
@@ -4817,6 +4919,7 @@ static void rtl8xxxu_desc_to_mcsrate(u16 rate, u8 *mcs, u8 *nss)
 
 static void rtl8xxxu_set_basic_rates(struct rtl8xxxu_priv *priv, u32 rate_cfg)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_set_basic_rates");
 	struct ieee80211_hw *hw = priv->hw;
 	u32 val32;
 	u8 rate_idx = 0;
@@ -4842,6 +4945,7 @@ static void rtl8xxxu_set_basic_rates(struct rtl8xxxu_priv *priv, u32 rate_cfg)
 static u16
 rtl8xxxu_wireless_mode(struct ieee80211_hw *hw, struct ieee80211_sta *sta)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_wireless_mode");
 	u16 network_type = WIRELESS_MODE_UNKNOWN;
 
 	if (hw->conf.chandef.chan->band == NL80211_BAND_5GHZ) {
@@ -4870,6 +4974,7 @@ rtl8xxxu_wireless_mode(struct ieee80211_hw *hw, struct ieee80211_sta *sta)
 
 static void rtl8xxxu_set_aifs(struct rtl8xxxu_priv *priv, u8 slot_time)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_set_aifs");
 	u32 reg_edca_param[IEEE80211_NUM_ACS] = {
 		[IEEE80211_AC_VO] = REG_EDCA_VO_PARAM,
 		[IEEE80211_AC_VI] = REG_EDCA_VI_PARAM,
@@ -4924,6 +5029,7 @@ static void rtl8xxxu_set_aifs(struct rtl8xxxu_priv *priv, u8 slot_time)
 void rtl8xxxu_update_ra_report(struct rtl8xxxu_ra_report *rarpt,
 			       u8 rate, u8 sgi, u8 bw)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_update_ra_report");
 	u8 mcs, nss;
 
 	rarpt->txrate.flags = 0;
@@ -4951,6 +5057,7 @@ static void
 rtl8xxxu_bss_info_changed(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
 			  struct ieee80211_bss_conf *bss_conf, u64 changed)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_bss_info_changed");
 	struct rtl8xxxu_vif *rtlvif = (struct rtl8xxxu_vif *)vif->drv_priv;
 	struct rtl8xxxu_priv *priv = hw->priv;
 	struct device *dev = &priv->udev->dev;
@@ -5084,6 +5191,7 @@ error:
 static int rtl8xxxu_start_ap(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
 			     struct ieee80211_bss_conf *link_conf)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_start_ap");
 	struct rtl8xxxu_vif *rtlvif = (struct rtl8xxxu_vif *)vif->drv_priv;
 	struct rtl8xxxu_priv *priv = hw->priv;
 	struct device *dev = &priv->udev->dev;
@@ -5098,6 +5206,7 @@ static int rtl8xxxu_start_ap(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
 
 static u32 rtl8xxxu_80211_to_rtl_queue(u32 queue)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_80211_to_rtl_queue");
 	u32 rtlqueue;
 
 	switch (queue) {
@@ -5122,6 +5231,7 @@ static u32 rtl8xxxu_80211_to_rtl_queue(u32 queue)
 
 static u32 rtl8xxxu_queue_select(struct ieee80211_hdr *hdr, struct sk_buff *skb)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_queue_select");
 	u32 queue;
 
 	if (unlikely(ieee80211_is_beacon(hdr->frame_control)))
@@ -5141,6 +5251,7 @@ static u32 rtl8xxxu_queue_select(struct ieee80211_hdr *hdr, struct sk_buff *skb)
  */
 static void rtl8xxxu_calc_tx_desc_csum(struct rtl8xxxu_txdesc32 *tx_desc)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_calc_tx_desc_csum");
 	__le16 *ptr = (__le16 *)tx_desc;
 	u16 csum = 0;
 	int i;
@@ -5159,6 +5270,7 @@ static void rtl8xxxu_calc_tx_desc_csum(struct rtl8xxxu_txdesc32 *tx_desc)
 
 static void rtl8xxxu_free_tx_resources(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_free_tx_resources");
 	struct rtl8xxxu_tx_urb *tx_urb, *tmp;
 	unsigned long flags;
 
@@ -5174,6 +5286,7 @@ static void rtl8xxxu_free_tx_resources(struct rtl8xxxu_priv *priv)
 static struct rtl8xxxu_tx_urb *
 rtl8xxxu_alloc_tx_urb(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_alloc_tx_urb");
 	struct rtl8xxxu_tx_urb *tx_urb;
 	unsigned long flags;
 
@@ -5198,6 +5311,7 @@ rtl8xxxu_alloc_tx_urb(struct rtl8xxxu_priv *priv)
 static void rtl8xxxu_free_tx_urb(struct rtl8xxxu_priv *priv,
 				 struct rtl8xxxu_tx_urb *tx_urb)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_free_tx_urb");
 	unsigned long flags;
 
 	INIT_LIST_HEAD(&tx_urb->list);
@@ -5217,6 +5331,7 @@ static void rtl8xxxu_free_tx_urb(struct rtl8xxxu_priv *priv,
 
 static void rtl8xxxu_tx_complete(struct urb *urb)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_tx_complete");
 	struct sk_buff *skb = (struct sk_buff *)urb->context;
 	struct ieee80211_tx_info *tx_info;
 	struct ieee80211_hw *hw;
@@ -5245,6 +5360,7 @@ static void rtl8xxxu_tx_complete(struct urb *urb)
 static void rtl8xxxu_dump_action(struct device *dev,
 				 struct ieee80211_hdr *hdr)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_dump_action");
 	struct ieee80211_mgmt *mgmt = (struct ieee80211_mgmt *)hdr;
 	u16 cap, timeout;
 
@@ -5292,6 +5408,7 @@ rtl8xxxu_fill_txdesc_v1(struct ieee80211_hw *hw, struct ieee80211_hdr *hdr,
 			bool short_preamble, bool ampdu_enable, u32 rts_rate,
 			u8 macid)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_fill_txdesc_v1");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	struct device *dev = &priv->udev->dev;
 	u8 *qc = ieee80211_get_qos_ctl(hdr);
@@ -5357,6 +5474,7 @@ rtl8xxxu_fill_txdesc_v2(struct ieee80211_hw *hw, struct ieee80211_hdr *hdr,
 			bool short_preamble, bool ampdu_enable, u32 rts_rate,
 			u8 macid)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_fill_txdesc_v2");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	struct device *dev = &priv->udev->dev;
 	struct rtl8xxxu_txdesc40 *tx_desc40;
@@ -5431,6 +5549,7 @@ rtl8xxxu_fill_txdesc_v3(struct ieee80211_hw *hw, struct ieee80211_hdr *hdr,
 			bool short_preamble, bool ampdu_enable, u32 rts_rate,
 			u8 macid)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_fill_txdesc_v3");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	struct device *dev = &priv->udev->dev;
 	struct rtl8xxxu_ra_info *ra = &priv->ra_info;
@@ -5508,6 +5627,7 @@ static void rtl8xxxu_tx(struct ieee80211_hw *hw,
 			struct ieee80211_tx_control *control,
 			struct sk_buff *skb)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_tx");
 	struct ieee80211_hdr *hdr = (struct ieee80211_hdr *)skb->data;
 	struct ieee80211_tx_info *tx_info = IEEE80211_SKB_CB(skb);
 	struct rtl8xxxu_priv *priv = hw->priv;
@@ -5660,6 +5780,7 @@ error:
 static void rtl8xxxu_send_beacon_frame(struct ieee80211_hw *hw,
 				       struct ieee80211_vif *vif)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_send_beacon_frame");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	struct sk_buff *skb = ieee80211_beacon_get(hw, vif, 0);
 	struct device *dev = &priv->udev->dev;
@@ -5693,6 +5814,7 @@ static void rtl8xxxu_send_beacon_frame(struct ieee80211_hw *hw,
 
 static void rtl8xxxu_update_beacon_work_callback(struct work_struct *work)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_update_beacon_work_callback");
 	struct rtl8xxxu_priv *priv =
 		container_of(work, struct rtl8xxxu_priv, update_beacon_work.work);
 	struct ieee80211_hw *hw = priv->hw;
@@ -5718,6 +5840,7 @@ static inline bool rtl8xxxu_is_packet_match_bssid(struct rtl8xxxu_priv *priv,
 						  struct ieee80211_hdr *hdr,
 						  int port_num)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_is_packet_match_bssid");
 	return priv->vifs[port_num] &&
 	       priv->vifs[port_num]->type == NL80211_IFTYPE_STATION &&
 	       priv->vifs[port_num]->cfg.assoc &&
@@ -5726,6 +5849,7 @@ static inline bool rtl8xxxu_is_packet_match_bssid(struct rtl8xxxu_priv *priv,
 
 static inline bool rtl8xxxu_is_sta_sta(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_is_sta_sta");
 	return (priv->vifs[0] && priv->vifs[0]->cfg.assoc &&
 		priv->vifs[0]->type == NL80211_IFTYPE_STATION) &&
 	       (priv->vifs[1] && priv->vifs[1]->cfg.assoc &&
@@ -5738,6 +5862,7 @@ void rtl8723au_rx_parse_phystats(struct rtl8xxxu_priv *priv,
 				 u32 rxmcs, struct ieee80211_hdr *hdr,
 				 bool crc_icv_err)
 {
+	printk(KERN_DEBUG "core.c - rtl8723au_rx_parse_phystats");
 	if (phy_stats->sgi_en)
 		rx_status->enc_flags |= RX_ENC_FLAG_SHORT_GI;
 
@@ -5772,6 +5897,7 @@ static void jaguar2_rx_parse_phystats_type0(struct rtl8xxxu_priv *priv,
 					    u32 rxmcs, struct ieee80211_hdr *hdr,
 					    bool crc_icv_err)
 {
+	printk(KERN_DEBUG "core.c - jaguar2_rx_parse_phystats_type0");
 	s8 rx_power = phy_stats0->pwdb - 110;
 
 	if (!priv->cck_new_agc)
@@ -5786,6 +5912,7 @@ static void jaguar2_rx_parse_phystats_type1(struct rtl8xxxu_priv *priv,
 					    u32 rxmcs, struct ieee80211_hdr *hdr,
 					    bool crc_icv_err)
 {
+	printk(KERN_DEBUG "core.c - jaguar2_rx_parse_phystats_type1");
 	bool parse_cfo = priv->fops->set_crystal_cap &&
 			 !crc_icv_err &&
 			 !ieee80211_is_ctl(hdr->frame_control) &&
@@ -5815,6 +5942,7 @@ static void jaguar2_rx_parse_phystats_type2(struct rtl8xxxu_priv *priv,
 					    u32 rxmcs, struct ieee80211_hdr *hdr,
 					    bool crc_icv_err)
 {
+	printk(KERN_DEBUG "core.c - jaguar2_rx_parse_phystats_type2");
 	u8 pwdb_max = 0;
 	int rx_path;
 
@@ -5830,6 +5958,7 @@ void jaguar2_rx_parse_phystats(struct rtl8xxxu_priv *priv,
 			       u32 rxmcs, struct ieee80211_hdr *hdr,
 			       bool crc_icv_err)
 {
+	printk(KERN_DEBUG "core.c - jaguar2_rx_parse_phystats");
 	struct jaguar2_phy_stats_type0 *phy_stats0 = (struct jaguar2_phy_stats_type0 *)phy_stats;
 	struct jaguar2_phy_stats_type1 *phy_stats1 = (struct jaguar2_phy_stats_type1 *)phy_stats;
 	struct jaguar2_phy_stats_type2 *phy_stats2 = (struct jaguar2_phy_stats_type2 *)phy_stats;
@@ -5857,6 +5986,7 @@ void jaguar2_rx_parse_phystats(struct rtl8xxxu_priv *priv,
 
 static void rtl8xxxu_free_rx_resources(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_free_rx_resources");
 	struct rtl8xxxu_rx_urb *rx_urb, *tmp;
 	unsigned long flags;
 
@@ -5875,6 +6005,7 @@ static void rtl8xxxu_free_rx_resources(struct rtl8xxxu_priv *priv)
 static void rtl8xxxu_queue_rx_urb(struct rtl8xxxu_priv *priv,
 				  struct rtl8xxxu_rx_urb *rx_urb)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_queue_rx_urb");
 	struct sk_buff *skb;
 	unsigned long flags;
 	int pending = 0;
@@ -5899,6 +6030,7 @@ static void rtl8xxxu_queue_rx_urb(struct rtl8xxxu_priv *priv,
 
 static void rtl8xxxu_rx_urb_work(struct work_struct *work)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_rx_urb_work");
 	struct rtl8xxxu_priv *priv;
 	struct rtl8xxxu_rx_urb *rx_urb, *tmp;
 	struct list_head local;
@@ -5951,6 +6083,7 @@ static void rtl8xxxu_rx_urb_work(struct work_struct *work)
 static
 void rtl8723bu_set_coex_with_type(struct rtl8xxxu_priv *priv, u8 type)
 {
+	printk(KERN_DEBUG "core.c - rtl8723bu_set_coex_with_type");
 	switch (type) {
 	case 0:
 		rtl8xxxu_write32(priv, REG_BT_COEX_TABLE1, 0x55555555);
@@ -6003,6 +6136,7 @@ void rtl8723bu_set_coex_with_type(struct rtl8xxxu_priv *priv, u8 type)
 static
 void rtl8723bu_update_bt_link_info(struct rtl8xxxu_priv *priv, u8 bt_info)
 {
+	printk(KERN_DEBUG "core.c - rtl8723bu_update_bt_link_info");
 	struct rtl8xxxu_btcoex *btcoex = &priv->bt_coex;
 
 	if (bt_info & BT_INFO_8723B_1ANT_B_INQ_PAGE)
@@ -6069,6 +6203,7 @@ void rtl8723bu_update_bt_link_info(struct rtl8xxxu_priv *priv, u8 bt_info)
 
 static inline bool rtl8xxxu_is_assoc(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_is_assoc");
 	return (priv->vifs[0] && priv->vifs[0]->cfg.assoc) ||
 	       (priv->vifs[1] && priv->vifs[1]->cfg.assoc);
 }
@@ -6076,6 +6211,7 @@ static inline bool rtl8xxxu_is_assoc(struct rtl8xxxu_priv *priv)
 static
 void rtl8723bu_handle_bt_inquiry(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8723bu_handle_bt_inquiry");
 	struct rtl8xxxu_btcoex *btcoex;
 
 	btcoex = &priv->bt_coex;
@@ -6098,6 +6234,7 @@ void rtl8723bu_handle_bt_inquiry(struct rtl8xxxu_priv *priv)
 static
 void rtl8723bu_handle_bt_info(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8723bu_handle_bt_info");
 	struct rtl8xxxu_btcoex *btcoex;
 
 	btcoex = &priv->bt_coex;
@@ -6149,6 +6286,7 @@ void rtl8723bu_handle_bt_info(struct rtl8xxxu_priv *priv)
 
 static void rtl8xxxu_c2hcmd_callback(struct work_struct *work)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_c2hcmd_callback");
 	struct rtl8xxxu_priv *priv;
 	struct rtl8723bu_c2h *c2h;
 	struct sk_buff *skb = NULL;
@@ -6201,6 +6339,7 @@ static void rtl8xxxu_c2hcmd_callback(struct work_struct *work)
 static void rtl8723bu_handle_c2h(struct rtl8xxxu_priv *priv,
 				 struct sk_buff *skb)
 {
+	printk(KERN_DEBUG "core.c - rtl8723bu_handle_c2h");
 	struct rtl8723bu_c2h *c2h = (struct rtl8723bu_c2h *)skb->data;
 	struct device *dev = &priv->udev->dev;
 	int len;
@@ -6249,6 +6388,7 @@ static void rtl8723bu_handle_c2h(struct rtl8xxxu_priv *priv,
 
 static void rtl8188e_c2hcmd_callback(struct work_struct *work)
 {
+	printk(KERN_DEBUG "core.c - rtl8188e_c2hcmd_callback");
 	struct rtl8xxxu_priv *priv = container_of(work, struct rtl8xxxu_priv, c2hcmd_work);
 	struct device *dev = &priv->udev->dev;
 	struct sk_buff *skb = NULL;
@@ -6299,6 +6439,7 @@ struct rtl8xxxu_rx_update_rssi_data {
 static void rtl8xxxu_rx_update_rssi_iter(void *data, u8 *mac,
 					 struct ieee80211_vif *vif)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_rx_update_rssi_iter");
 	struct rtl8xxxu_rx_update_rssi_data *iter_data = data;
 	struct ieee80211_sta *sta;
 	struct ieee80211_hdr *hdr = iter_data->hdr;
@@ -6325,6 +6466,7 @@ static void rtl8xxxu_rx_update_rssi_iter(void *data, u8 *mac,
 
 static inline u8 *get_hdr_bssid(struct ieee80211_hdr *hdr)
 {
+	printk(KERN_DEBUG "core.c - get_hdr_bssid");
 	__le16 fc = hdr->frame_control;
 	u8 *bssid;
 
@@ -6342,6 +6484,7 @@ static void rtl8xxxu_rx_update_rssi(struct rtl8xxxu_priv *priv,
 				    struct ieee80211_rx_status *rx_status,
 				    struct ieee80211_hdr *hdr)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_rx_update_rssi");
 	struct rtl8xxxu_rx_update_rssi_data data = {};
 
 	if (ieee80211_is_ctl(hdr->frame_control))
@@ -6357,6 +6500,7 @@ static void rtl8xxxu_rx_update_rssi(struct rtl8xxxu_priv *priv,
 
 int rtl8xxxu_parse_rxdesc16(struct rtl8xxxu_priv *priv, struct sk_buff *skb)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_parse_rxdesc16");
 	struct ieee80211_hw *hw = priv->hw;
 	struct ieee80211_rx_status *rx_status;
 	struct rtl8xxxu_rxdesc16 *rx_desc;
@@ -6474,6 +6618,7 @@ int rtl8xxxu_parse_rxdesc16(struct rtl8xxxu_priv *priv, struct sk_buff *skb)
 
 int rtl8xxxu_parse_rxdesc24(struct rtl8xxxu_priv *priv, struct sk_buff *skb)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_parse_rxdesc24");
 	struct ieee80211_hw *hw = priv->hw;
 	struct ieee80211_rx_status *rx_status;
 	struct rtl8xxxu_rxdesc24 *rx_desc;
@@ -6578,6 +6723,7 @@ int rtl8xxxu_parse_rxdesc24(struct rtl8xxxu_priv *priv, struct sk_buff *skb)
 
 static void rtl8xxxu_rx_complete(struct urb *urb)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_rx_complete");
 	struct rtl8xxxu_rx_urb *rx_urb =
 		container_of(urb, struct rtl8xxxu_rx_urb, urb);
 	struct ieee80211_hw *hw = rx_urb->hw;
@@ -6607,6 +6753,7 @@ cleanup:
 static int rtl8xxxu_submit_rx_urb(struct rtl8xxxu_priv *priv,
 				  struct rtl8xxxu_rx_urb *rx_urb)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_submit_rx_urb");
 	struct rtl8xxxu_fileops *fops = priv->fops;
 	struct sk_buff *skb;
 	int skb_size;
@@ -6637,6 +6784,7 @@ static int rtl8xxxu_submit_rx_urb(struct rtl8xxxu_priv *priv,
 
 static void rtl8xxxu_int_complete(struct urb *urb)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_int_complete");
 	struct rtl8xxxu_priv *priv = (struct rtl8xxxu_priv *)urb->context;
 	struct device *dev = &priv->udev->dev;
 	int ret;
@@ -6656,6 +6804,7 @@ static void rtl8xxxu_int_complete(struct urb *urb)
 
 static int rtl8xxxu_submit_int_urb(struct ieee80211_hw *hw)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_submit_int_urb");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	struct urb *urb;
 	u32 val32;
@@ -6686,6 +6835,7 @@ error:
 
 static void rtl8xxxu_switch_ports(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_switch_ports");
 	u8 macid[ETH_ALEN], bssid[ETH_ALEN], macid_1[ETH_ALEN], bssid_1[ETH_ALEN];
 	u8 msr, bcn_ctrl, bcn_ctrl_1, atimwnd[2], atimwnd_1[2];
 	struct rtl8xxxu_vif *rtlvif;
@@ -6768,6 +6918,7 @@ static void rtl8xxxu_switch_ports(struct rtl8xxxu_priv *priv)
 static int rtl8xxxu_add_interface(struct ieee80211_hw *hw,
 				  struct ieee80211_vif *vif)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_add_interface");
 	struct rtl8xxxu_vif *rtlvif = (struct rtl8xxxu_vif *)vif->drv_priv;
 	struct rtl8xxxu_priv *priv = hw->priv;
 	int port_num;
@@ -6832,6 +6983,7 @@ static int rtl8xxxu_add_interface(struct ieee80211_hw *hw,
 static void rtl8xxxu_remove_interface(struct ieee80211_hw *hw,
 				      struct ieee80211_vif *vif)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_remove_interface");
 	struct rtl8xxxu_vif *rtlvif = (struct rtl8xxxu_vif *)vif->drv_priv;
 	struct rtl8xxxu_priv *priv = hw->priv;
 
@@ -6842,6 +6994,7 @@ static void rtl8xxxu_remove_interface(struct ieee80211_hw *hw,
 
 static int rtl8xxxu_config(struct ieee80211_hw *hw, u32 changed)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_config");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	struct device *dev = &priv->udev->dev;
 	int ret = 0, channel;
@@ -6883,6 +7036,7 @@ static int rtl8xxxu_conf_tx(struct ieee80211_hw *hw,
 			    unsigned int link_id, u16 queue,
 			    const struct ieee80211_tx_queue_params *param)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_conf_tx");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	struct device *dev = &priv->udev->dev;
 	u32 val32;
@@ -6935,6 +7089,7 @@ static void rtl8xxxu_configure_filter(struct ieee80211_hw *hw,
 				      unsigned int changed_flags,
 				      unsigned int *total_flags, u64 multicast)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_configure_filter");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	u32 rcr = priv->regrcr;
 
@@ -6991,6 +7146,7 @@ static void rtl8xxxu_configure_filter(struct ieee80211_hw *hw,
 
 static int rtl8xxxu_set_rts_threshold(struct ieee80211_hw *hw, u32 rts)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_set_rts_threshold");
 	if (rts > 2347 && rts != (u32)-1)
 		return -EINVAL;
 
@@ -6999,6 +7155,7 @@ static int rtl8xxxu_set_rts_threshold(struct ieee80211_hw *hw, u32 rts)
 
 static int rtl8xxxu_get_free_sec_cam(struct ieee80211_hw *hw)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_get_free_sec_cam");
 	struct rtl8xxxu_priv *priv = hw->priv;
 
 	return find_first_zero_bit(priv->cam_map, priv->fops->max_sec_cam_num);
@@ -7009,6 +7166,7 @@ static int rtl8xxxu_set_key(struct ieee80211_hw *hw, enum set_key_cmd cmd,
 			    struct ieee80211_sta *sta,
 			    struct ieee80211_key_conf *key)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_set_key");
 	struct rtl8xxxu_vif *rtlvif = (struct rtl8xxxu_vif *)vif->drv_priv;
 	struct rtl8xxxu_priv *priv = hw->priv;
 	struct device *dev = &priv->udev->dev;
@@ -7093,6 +7251,7 @@ static int
 rtl8xxxu_ampdu_action(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
 		      struct ieee80211_ampdu_params *params)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_ampdu_action");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	struct device *dev = &priv->udev->dev;
 	u8 ampdu_factor, ampdu_density;
@@ -7141,6 +7300,7 @@ static void
 rtl8xxxu_sta_statistics(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
 			struct ieee80211_sta *sta, struct station_info *sinfo)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_sta_statistics");
 	struct rtl8xxxu_priv *priv = hw->priv;
 
 	sinfo->txrate = priv->ra_report.txrate;
@@ -7149,6 +7309,7 @@ rtl8xxxu_sta_statistics(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
 
 static u8 rtl8xxxu_signal_to_snr(int signal)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_signal_to_snr");
 	if (signal < RTL8XXXU_NOISE_FLOOR_MIN)
 		signal = RTL8XXXU_NOISE_FLOOR_MIN;
 	else if (signal > 0)
@@ -7160,6 +7321,7 @@ static void rtl8xxxu_refresh_rate_mask(struct rtl8xxxu_priv *priv,
 				       int signal, struct ieee80211_sta *sta,
 				       bool force)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_refresh_rate_mask");
 	struct rtl8xxxu_sta_info *sta_info = (struct rtl8xxxu_sta_info *)sta->drv_priv;
 	struct ieee80211_hw *hw = priv->hw;
 	u16 wireless_mode;
@@ -7291,6 +7453,7 @@ static void rtl8xxxu_refresh_rate_mask(struct rtl8xxxu_priv *priv,
 
 static void rtl8xxxu_set_atc_status(struct rtl8xxxu_priv *priv, bool atc_status)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_set_atc_status");
 	struct rtl8xxxu_cfo_tracking *cfo = &priv->cfo_tracking;
 	u32 val32;
 
@@ -7310,6 +7473,7 @@ static void rtl8xxxu_set_atc_status(struct rtl8xxxu_priv *priv, bool atc_status)
 /* Central frequency offset correction */
 static void rtl8xxxu_track_cfo(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_track_cfo");
 	struct rtl8xxxu_cfo_tracking *cfo = &priv->cfo_tracking;
 	int cfo_khz_a, cfo_khz_b, cfo_average;
 	int crystal_cap;
@@ -7379,6 +7543,7 @@ static void rtl8xxxu_track_cfo(struct rtl8xxxu_priv *priv)
 
 static void rtl8xxxu_ra_iter(void *data, struct ieee80211_sta *sta)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_ra_iter");
 	struct rtl8xxxu_sta_info *sta_info = (struct rtl8xxxu_sta_info *)sta->drv_priv;
 	struct rtl8xxxu_priv *priv = data;
 	int signal = -ewma_rssi_read(&sta_info->avg_rssi);
@@ -7400,6 +7565,7 @@ struct rtl8xxxu_iter_stas_data {
 
 static void rtl8xxxu_collect_sta_iter(void *data, struct ieee80211_sta *sta)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_collect_sta_iter");
 	struct rtl8xxxu_iter_stas_data *iter_stas = data;
 	struct rtl8xxxu_stas_entry *stas_entry;
 
@@ -7413,6 +7579,7 @@ static void rtl8xxxu_collect_sta_iter(void *data, struct ieee80211_sta *sta)
 
 static void rtl8xxxu_watchdog_callback(struct work_struct *work)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_watchdog_callback");
 
 	struct rtl8xxxu_iter_stas_data iter_data;
 	struct rtl8xxxu_stas_entry *sta_entry, *tmp;
@@ -7440,6 +7607,7 @@ static void rtl8xxxu_watchdog_callback(struct work_struct *work)
 
 static int rtl8xxxu_start(struct ieee80211_hw *hw)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_start");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	struct rtl8xxxu_rx_urb *rx_urb;
 	struct rtl8xxxu_tx_urb *tx_urb;
@@ -7529,6 +7697,7 @@ error_out:
 
 static void rtl8xxxu_stop(struct ieee80211_hw *hw, bool suspend)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_stop");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	unsigned long flags;
 
@@ -7568,6 +7737,7 @@ static int rtl8xxxu_sta_add(struct ieee80211_hw *hw,
 			    struct ieee80211_vif *vif,
 			    struct ieee80211_sta *sta)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_sta_add");
 	struct rtl8xxxu_sta_info *sta_info = (struct rtl8xxxu_sta_info *)sta->drv_priv;
 	struct rtl8xxxu_vif *rtlvif = (struct rtl8xxxu_vif *)vif->drv_priv;
 	struct rtl8xxxu_priv *priv = hw->priv;
@@ -7605,6 +7775,7 @@ static int rtl8xxxu_sta_remove(struct ieee80211_hw *hw,
 			       struct ieee80211_vif *vif,
 			       struct ieee80211_sta *sta)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_sta_remove");
 	struct rtl8xxxu_sta_info *sta_info = (struct rtl8xxxu_sta_info *)sta->drv_priv;
 	struct rtl8xxxu_priv *priv = hw->priv;
 
@@ -7647,6 +7818,7 @@ static const struct ieee80211_ops rtl8xxxu_ops = {
 static int rtl8xxxu_parse_usb(struct rtl8xxxu_priv *priv,
 			      struct usb_interface *interface)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_parse_usb");
 	struct usb_interface_descriptor *interface_desc;
 	struct usb_host_interface *host_interface;
 	struct usb_endpoint_descriptor *endpoint;
@@ -7722,6 +7894,7 @@ exit:
 
 static void rtl8xxxu_init_led(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_init_led");
 	struct led_classdev *led = &priv->led_cdev;
 
 	if (!priv->fops->led_classdev_brightness_set)
@@ -7745,6 +7918,7 @@ static void rtl8xxxu_init_led(struct rtl8xxxu_priv *priv)
 
 static void rtl8xxxu_deinit_led(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_deinit_led");
 	struct led_classdev *led = &priv->led_cdev;
 
 	if (!priv->led_registered)
@@ -7771,6 +7945,7 @@ static const struct ieee80211_iface_combination rtl8xxxu_combinations[] = {
 static int rtl8xxxu_probe(struct usb_interface *interface,
 			  const struct usb_device_id *id)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_probe");
 	struct rtl8xxxu_priv *priv;
 	struct ieee80211_hw *hw;
 	struct usb_device *udev;
@@ -7993,6 +8168,7 @@ err_put_dev:
 
 static void rtl8xxxu_disconnect(struct usb_interface *interface)
 {
+	printk(KERN_DEBUG "core.c - rtl8xxxu_disconnect");
 	struct rtl8xxxu_priv *priv;
 	struct ieee80211_hw *hw;
 

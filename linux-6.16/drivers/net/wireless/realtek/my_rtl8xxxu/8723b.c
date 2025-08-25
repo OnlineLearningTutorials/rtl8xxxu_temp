@@ -290,6 +290,7 @@ static const struct rtl8xxxu_rfregval rtl8723bu_radioa_1t_init_table[] = {
 
 static int rtl8723bu_identify_chip(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	struct device *dev = &priv->udev->dev;
 	u32 val32, sys_cfg, vendor;
 	int ret = 0;
@@ -337,6 +338,7 @@ out:
 
 static void rtl8723bu_write_btreg(struct rtl8xxxu_priv *priv, u8 reg, u8 data)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	struct h2c_cmd h2c;
 	int reqnum = 0;
 
@@ -358,6 +360,7 @@ static void rtl8723bu_write_btreg(struct rtl8xxxu_priv *priv, u8 reg, u8 data)
 
 static void rtl8723bu_reset_8051(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	u8 val8;
 	u16 sys_func;
 
@@ -388,6 +391,7 @@ static void rtl8723bu_reset_8051(struct rtl8xxxu_priv *priv)
 static void
 rtl8723b_set_tx_power(struct rtl8xxxu_priv *priv, int channel, bool ht40)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	u32 val32, ofdm, mcs;
 	u8 cck, ofdmbase, mcsbase;
 	int group, tx_idx;
@@ -426,6 +430,7 @@ rtl8723b_set_tx_power(struct rtl8xxxu_priv *priv, int channel, bool ht40)
 
 static int rtl8723bu_parse_efuse(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	struct rtl8723bu_efuse *efuse = &priv->efuse_wifi.efuse8723bu;
 	int i;
 
@@ -483,6 +488,7 @@ static int rtl8723bu_parse_efuse(struct rtl8xxxu_priv *priv)
 
 static int rtl8723bu_load_firmware(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	const char *fw_name;
 	int ret;
 
@@ -497,6 +503,7 @@ static int rtl8723bu_load_firmware(struct rtl8xxxu_priv *priv)
 
 static void rtl8723bu_init_phy_bb(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	u8 val8;
 	u16 val16;
 
@@ -520,6 +527,7 @@ static void rtl8723bu_init_phy_bb(struct rtl8xxxu_priv *priv)
 
 static int rtl8723bu_init_phy_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	int ret;
 
 	ret = rtl8xxxu_init_phy_rf(priv, rtl8723bu_radioa_1t_init_table, RF_A);
@@ -536,6 +544,7 @@ static int rtl8723bu_init_phy_rf(struct rtl8xxxu_priv *priv)
 
 void rtl8723bu_phy_init_antenna_selection(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	u32 val32;
 
 	val32 = rtl8xxxu_read32(priv, REG_PAD_CTRL1);
@@ -574,6 +583,7 @@ void rtl8723bu_phy_init_antenna_selection(struct rtl8xxxu_priv *priv)
 
 static int rtl8723bu_iqk_path_a(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	u32 reg_eac, reg_e94, reg_e9c, path_sel, val32;
 	int result = 0;
 
@@ -684,6 +694,7 @@ out:
 
 static int rtl8723bu_rx_iqk_path_a(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	u32 reg_ea4, reg_eac, reg_e94, reg_e9c, path_sel, val32;
 	int result = 0;
 
@@ -894,6 +905,7 @@ out:
 static void rtl8723bu_phy_iqcalibrate(struct rtl8xxxu_priv *priv,
 				      int result[][8], int t)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	struct device *dev = &priv->udev->dev;
 	u32 i, val32;
 	int path_a_ok /*, path_b_ok */;
@@ -1101,6 +1113,7 @@ static void rtl8723bu_phy_iqcalibrate(struct rtl8xxxu_priv *priv,
 
 static void rtl8723bu_phy_iq_calibrate(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	struct device *dev = &priv->udev->dev;
 	int result[4][8];	/* last is final result */
 	int i, candidate;
@@ -1225,6 +1238,7 @@ static void rtl8723bu_phy_iq_calibrate(struct rtl8xxxu_priv *priv)
 
 static int rtl8723bu_active_to_emu(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	u8 val8;
 	u16 val16;
 	u32 val32;
@@ -1283,6 +1297,7 @@ exit:
 
 static int rtl8723b_emu_to_active(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	u8 val8;
 	u32 val32;
 	int count, ret = 0;
@@ -1404,6 +1419,7 @@ exit:
 
 static int rtl8723bu_power_on(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	u8 val8;
 	u16 val16;
 	u32 val32;
@@ -1460,6 +1476,7 @@ exit:
 
 static void rtl8723bu_power_off(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	u8 val8;
 	u16 val16;
 
@@ -1502,6 +1519,7 @@ static void rtl8723bu_power_off(struct rtl8xxxu_priv *priv)
 
 static void rtl8723b_enable_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	struct h2c_cmd h2c;
 	u32 val32;
 	u8 val8;
@@ -1616,6 +1634,7 @@ static void rtl8723b_enable_rf(struct rtl8xxxu_priv *priv)
 
 static void rtl8723bu_init_aggregation(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	u32 agg_rx;
 	u8 agg_ctrl;
 
@@ -1635,6 +1654,7 @@ static void rtl8723bu_init_aggregation(struct rtl8xxxu_priv *priv)
 
 static void rtl8723bu_init_statistics(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	u32 val32;
 
 	/* Time duration for NHM unit: 4us, 0x2710=40ms */
@@ -1658,6 +1678,7 @@ static void rtl8723bu_init_statistics(struct rtl8xxxu_priv *priv)
 
 static s8 rtl8723b_cck_rssi(struct rtl8xxxu_priv *priv, struct rtl8723au_phy_stats *phy_stats)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	u8 cck_agc_rpt = phy_stats->cck_agc_rpt_ofdm_cfosho_a;
 	s8 rx_pwr_all = 0x00;
 	u8 vga_idx, lna_idx;
@@ -1688,6 +1709,7 @@ static s8 rtl8723b_cck_rssi(struct rtl8xxxu_priv *priv, struct rtl8723au_phy_sta
 static int rtl8723bu_led_brightness_set(struct led_classdev *led_cdev,
 					enum led_brightness brightness)
 {
+	printk(KERN_DEBUG "8723b.c - ");
 	struct rtl8xxxu_priv *priv = container_of(led_cdev,
 						  struct rtl8xxxu_priv,
 						  led_cdev);

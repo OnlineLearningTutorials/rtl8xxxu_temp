@@ -383,6 +383,7 @@ enum rtl8188e_tx_rpt_timing {
 
 static int rtl8188eu_identify_chip(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	struct device *dev = &priv->udev->dev;
 	u32 sys_cfg, vendor;
 	int ret = 0;
@@ -422,6 +423,7 @@ static int rtl8188eu_identify_chip(struct rtl8xxxu_priv *priv)
 
 static void rtl8188eu_config_channel(struct ieee80211_hw *hw)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	u32 val32, rsr;
 	u8 opmode;
@@ -523,6 +525,7 @@ static void rtl8188eu_config_channel(struct ieee80211_hw *hw)
 
 static void rtl8188eu_init_aggregation(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u8 agg_ctrl, usb_spec;
 
 	usb_spec = rtl8xxxu_read8(priv, REG_USB_SPECIAL_OPTION);
@@ -536,6 +539,7 @@ static void rtl8188eu_init_aggregation(struct rtl8xxxu_priv *priv)
 
 static int rtl8188eu_parse_efuse(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	struct rtl8188eu_efuse *efuse = &priv->efuse_wifi.efuse8188eu;
 
 	if (efuse->rtl_id != cpu_to_le16(0x8129))
@@ -557,6 +561,7 @@ static int rtl8188eu_parse_efuse(struct rtl8xxxu_priv *priv)
 
 static void rtl8188eu_reset_8051(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u16 sys_func;
 
 	sys_func = rtl8xxxu_read16(priv, REG_SYS_FUNC);
@@ -569,6 +574,7 @@ static void rtl8188eu_reset_8051(struct rtl8xxxu_priv *priv)
 
 static int rtl8188eu_load_firmware(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	const char *fw_name;
 	int ret;
 
@@ -581,6 +587,7 @@ static int rtl8188eu_load_firmware(struct rtl8xxxu_priv *priv)
 
 static void rtl8188eu_init_phy_bb(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u8 val8;
 	u16 val16;
 
@@ -604,11 +611,13 @@ static void rtl8188eu_init_phy_bb(struct rtl8xxxu_priv *priv)
 
 static int rtl8188eu_init_phy_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	return rtl8xxxu_init_phy_rf(priv, rtl8188eu_radioa_init_table, RF_A);
 }
 
 static int rtl8188eu_iqk_path_a(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u32 reg_eac, reg_e94, reg_e9c;
 	int result = 0;
 
@@ -643,6 +652,7 @@ static int rtl8188eu_iqk_path_a(struct rtl8xxxu_priv *priv)
 
 static int rtl8188eu_rx_iqk_path_a(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u32 reg_ea4, reg_eac, reg_e94, reg_e9c, val32;
 	int result = 0;
 
@@ -750,6 +760,7 @@ out:
 static void rtl8188eu_phy_iqcalibrate(struct rtl8xxxu_priv *priv,
 				      int result[][8], int t)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	struct device *dev = &priv->udev->dev;
 	u32 i, val32;
 	int path_a_ok;
@@ -905,6 +916,7 @@ static void rtl8188eu_phy_iqcalibrate(struct rtl8xxxu_priv *priv,
 
 static void rtl8188eu_phy_iq_calibrate(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	struct device *dev = &priv->udev->dev;
 	int result[4][8];	/* last is final result */
 	int i, candidate;
@@ -992,6 +1004,7 @@ static void rtl8188eu_phy_iq_calibrate(struct rtl8xxxu_priv *priv)
 
 static void rtl8188e_disabled_to_emu(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u16 val16;
 
 	val16 = rtl8xxxu_read16(priv, REG_APS_FSMCO);
@@ -1001,6 +1014,7 @@ static void rtl8188e_disabled_to_emu(struct rtl8xxxu_priv *priv)
 
 static int rtl8188e_emu_to_active(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u8 val8;
 	u32 val32;
 	u16 val16;
@@ -1070,6 +1084,7 @@ exit:
 
 static int rtl8188eu_active_to_emu(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u8 val8;
 
 	/* Turn off RF */
@@ -1087,6 +1102,7 @@ static int rtl8188eu_active_to_emu(struct rtl8xxxu_priv *priv)
 
 static int rtl8188eu_emu_to_disabled(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u32 val32;
 	u16 val16;
 	u8 val8;
@@ -1116,6 +1132,7 @@ static int rtl8188eu_emu_to_disabled(struct rtl8xxxu_priv *priv)
 
 static int rtl8188eu_active_to_lps(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	struct device *dev = &priv->udev->dev;
 	u8 val8;
 	u16 val16;
@@ -1164,6 +1181,7 @@ out:
 
 static int rtl8188eu_power_on(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u16 val16;
 	int ret;
 
@@ -1194,6 +1212,7 @@ exit:
 
 static void rtl8188eu_power_off(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u8 val8;
 	u16 val16;
 
@@ -1261,6 +1280,7 @@ static void rtl8188eu_power_off(struct rtl8xxxu_priv *priv)
 
 static void rtl8188e_enable_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u32 val32;
 
 	rtl8xxxu_write8(priv, REG_RF_CTRL, RF_ENABLE | RF_RSTB | RF_SDMRSTB);
@@ -1275,6 +1295,7 @@ static void rtl8188e_enable_rf(struct rtl8xxxu_priv *priv)
 
 static void rtl8188e_disable_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u32 val32;
 
 	val32 = rtl8xxxu_read32(priv, REG_OFDM0_TRX_PATH_ENABLE);
@@ -1289,6 +1310,7 @@ static void rtl8188e_disable_rf(struct rtl8xxxu_priv *priv)
 
 static void rtl8188e_usb_quirks(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u16 val16;
 
 	/*
@@ -1308,6 +1330,7 @@ static void rtl8188e_usb_quirks(struct rtl8xxxu_priv *priv)
 
 static s8 rtl8188e_cck_rssi(struct rtl8xxxu_priv *priv, struct rtl8723au_phy_stats *phy_stats)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	/* only use lna 0/1/2/3/7 */
 	static const s8 lna_gain_table_0[8] = {17, -1, -13, -29, -32, -35, -38, -41};
 	/* only use lna 3/7 */
@@ -1334,6 +1357,7 @@ static s8 rtl8188e_cck_rssi(struct rtl8xxxu_priv *priv, struct rtl8723au_phy_sta
 static int rtl8188eu_led_brightness_set(struct led_classdev *led_cdev,
 					enum led_brightness brightness)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	struct rtl8xxxu_priv *priv = container_of(led_cdev,
 						  struct rtl8xxxu_priv,
 						  led_cdev);
@@ -1357,6 +1381,7 @@ static int rtl8188eu_led_brightness_set(struct led_classdev *led_cdev,
 
 static void rtl8188e_set_tx_rpt_timing(struct rtl8xxxu_ra_info *ra, u8 timing)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u8 idx;
 
 	for (idx = 0; idx < 5; idx++)
@@ -1378,6 +1403,7 @@ static void rtl8188e_set_tx_rpt_timing(struct rtl8xxxu_ra_info *ra, u8 timing)
 
 static void rtl8188e_rate_down(struct rtl8xxxu_ra_info *ra)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u8 rate_id = ra->pre_rate;
 	u8 lowest_rate = ra->lowest_rate;
 	u8 highest_rate = ra->highest_rate;
@@ -1421,6 +1447,7 @@ rate_down_finish:
 
 static void rtl8188e_rate_up(struct rtl8xxxu_ra_info *ra)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u8 rate_id = ra->pre_rate;
 	u8 highest_rate = ra->highest_rate;
 	u8 i;
@@ -1462,6 +1489,7 @@ rate_up_finish:
 
 static void rtl8188e_reset_ra_counter(struct rtl8xxxu_ra_info *ra)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u8 rate_id = ra->decision_rate;
 
 	ra->nsc_up = (n_threshold_high[rate_id] + n_threshold_low[rate_id]) >> 1;
@@ -1470,6 +1498,7 @@ static void rtl8188e_reset_ra_counter(struct rtl8xxxu_ra_info *ra)
 
 static void rtl8188e_rate_decision(struct rtl8xxxu_ra_info *ra)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	struct rtl8xxxu_priv *priv = container_of(ra, struct rtl8xxxu_priv, ra_info);
 	const u8 *retry_penalty_idx_0;
 	const u8 *retry_penalty_idx_1;
@@ -1567,6 +1596,7 @@ static void rtl8188e_rate_decision(struct rtl8xxxu_ra_info *ra)
 
 static void rtl8188e_power_training_try_state(struct rtl8xxxu_ra_info *ra)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	ra->pt_try_state = 0;
 	switch (ra->pt_mode_ss) {
 	case 3:
@@ -1628,6 +1658,7 @@ static void rtl8188e_power_training_try_state(struct rtl8xxxu_ra_info *ra)
 
 static void rtl8188e_power_training_decision(struct rtl8xxxu_ra_info *ra)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u8 temp_stage;
 	u32 numsc;
 	u32 num_total;
@@ -1666,6 +1697,7 @@ static void rtl8188e_power_training_decision(struct rtl8xxxu_ra_info *ra)
 
 void rtl8188e_handle_ra_tx_report2(struct rtl8xxxu_priv *priv, struct sk_buff *skb)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	u32 *_rx_desc = (u32 *)(skb->data - sizeof(struct rtl8xxxu_rxdesc16));
 	struct rtl8xxxu_rxdesc16 *rx_desc = (struct rtl8xxxu_rxdesc16 *)_rx_desc;
 	struct device *dev = &priv->udev->dev;
@@ -1738,6 +1770,7 @@ void rtl8188e_handle_ra_tx_report2(struct rtl8xxxu_priv *priv, struct sk_buff *s
 
 static void rtl8188e_arfb_refresh(struct rtl8xxxu_ra_info *ra)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	s8 i;
 
 	ra->ra_use_rate = ra->rate_mask;
@@ -1781,6 +1814,7 @@ rtl8188e_update_rate_mask(struct rtl8xxxu_priv *priv,
 			  u32 ramask, u8 rateid, int sgi, int txbw_40mhz,
 			  u8 macid)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	struct rtl8xxxu_ra_info *ra = &priv->ra_info;
 
 	ra->rate_id = rateid;
@@ -1792,11 +1826,13 @@ rtl8188e_update_rate_mask(struct rtl8xxxu_priv *priv,
 
 static void rtl8188e_ra_set_rssi(struct rtl8xxxu_priv *priv, u8 macid, u8 rssi)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	priv->ra_info.rssi_sta_ra = rssi;
 }
 
 void rtl8188e_ra_info_init_all(struct rtl8xxxu_ra_info *ra)
 {
+	printk(KERN_DEBUG "8188e.c - ");
 	ra->decision_rate = DESC_RATE_MCS7;
 	ra->pre_rate = DESC_RATE_MCS7;
 	ra->highest_rate = DESC_RATE_MCS7;

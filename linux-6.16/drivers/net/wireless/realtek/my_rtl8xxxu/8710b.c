@@ -462,6 +462,7 @@ static const struct rtl8xxxu_rfregval rtl8710bu_qfn48m_s_radioa_init_table[] = {
 
 static u32 rtl8710b_indirect_read32(struct rtl8xxxu_priv *priv, u32 addr)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	struct device *dev = &priv->udev->dev;
 	u32 val32, value = 0xffffffff;
 	u8 polling_count = 0xff;
@@ -497,6 +498,7 @@ static u32 rtl8710b_indirect_read32(struct rtl8xxxu_priv *priv, u32 addr)
 
 static void rtl8710b_indirect_write32(struct rtl8xxxu_priv *priv, u32 addr, u32 val)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	struct device *dev = &priv->udev->dev;
 	u8 polling_count = 0xff;
 	u32 val32;
@@ -529,16 +531,19 @@ static void rtl8710b_indirect_write32(struct rtl8xxxu_priv *priv, u32 addr, u32 
 
 static u32 rtl8710b_read_syson_reg(struct rtl8xxxu_priv *priv, u32 addr)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	return rtl8710b_indirect_read32(priv, addr | SYSON_REG_BASE_ADDR_8710B);
 }
 
 static void rtl8710b_write_syson_reg(struct rtl8xxxu_priv *priv, u32 addr, u32 val)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	rtl8710b_indirect_write32(priv, addr | SYSON_REG_BASE_ADDR_8710B, val);
 }
 
 static int rtl8710b_read_efuse8(struct rtl8xxxu_priv *priv, u16 offset, u8 *data)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	u32 val32;
 	int i;
 
@@ -570,6 +575,7 @@ static int rtl8710b_read_efuse8(struct rtl8xxxu_priv *priv, u16 offset, u8 *data
 
 static int rtl8710bu_identify_chip(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	struct device *dev = &priv->udev->dev;
 	u32 cfg0, cfg2, vendor;
 	u8 package_type = 0x7; /* a nonsense value */
@@ -652,6 +658,7 @@ static int rtl8710bu_identify_chip(struct rtl8xxxu_priv *priv)
 
 static void rtl8710b_revise_cck_tx_psf(struct rtl8xxxu_priv *priv, u8 channel)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	if (channel == 13) {
 		/* Normal values */
 		rtl8xxxu_write32(priv, REG_CCK0_TX_FILTER2, 0x64B80C1C);
@@ -677,6 +684,7 @@ static void rtl8710b_revise_cck_tx_psf(struct rtl8xxxu_priv *priv, u8 channel)
 
 static void rtl8710bu_config_channel(struct ieee80211_hw *hw)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	struct rtl8xxxu_priv *priv = hw->priv;
 	bool ht40 = conf_is_ht40(&hw->conf);
 	u8 channel, subchannel = 0;
@@ -803,6 +811,7 @@ static void rtl8710bu_config_channel(struct ieee80211_hw *hw)
 
 static void rtl8710bu_init_aggregation(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	u32 agg_rx;
 	u8 agg_ctrl;
 
@@ -820,6 +829,7 @@ static void rtl8710bu_init_aggregation(struct rtl8xxxu_priv *priv)
 
 static void rtl8710bu_init_statistics(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	u32 val32;
 
 	/* Time duration for NHM unit: 4us, 0xc350=200ms */
@@ -847,6 +857,7 @@ static void rtl8710bu_init_statistics(struct rtl8xxxu_priv *priv)
 
 static int rtl8710b_read_efuse(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	struct device *dev = &priv->udev->dev;
 	u8 val8, word_mask, header, extheader;
 	u16 efuse_addr, offset;
@@ -922,6 +933,7 @@ exit:
 
 static int rtl8710bu_parse_efuse(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	struct rtl8710bu_efuse *efuse = &priv->efuse_wifi.efuse8710bu;
 
 	if (efuse->rtl_id != cpu_to_le16(0x8195))
@@ -946,6 +958,7 @@ static int rtl8710bu_parse_efuse(struct rtl8xxxu_priv *priv)
 
 static int rtl8710bu_load_firmware(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	if (priv->vendor_smic) {
 		return rtl8xxxu_load_firmware(priv, "rtlwifi/rtl8710bufw_SMIC.bin");
 	} else if (priv->vendor_umc) {
@@ -958,6 +971,7 @@ static int rtl8710bu_load_firmware(struct rtl8xxxu_priv *priv)
 
 static void rtl8710bu_init_phy_bb(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	const struct rtl8xxxu_reg32val *phy_init_table;
 	u32 val32;
 
@@ -978,6 +992,7 @@ static void rtl8710bu_init_phy_bb(struct rtl8xxxu_priv *priv)
 
 static int rtl8710bu_init_phy_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	const struct rtl8xxxu_rfregval *radioa_init_table;
 
 	if (priv->package_type == PACKAGE_QFN48M_U)
@@ -990,6 +1005,7 @@ static int rtl8710bu_init_phy_rf(struct rtl8xxxu_priv *priv)
 
 static int rtl8710bu_iqk_path_a(struct rtl8xxxu_priv *priv, u32 *lok_result)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	u32 reg_eac, reg_e94, reg_e9c, val32, path_sel_bb;
 	int result = 0;
 
@@ -1074,6 +1090,7 @@ static int rtl8710bu_iqk_path_a(struct rtl8xxxu_priv *priv, u32 *lok_result)
 
 static int rtl8710bu_rx_iqk_path_a(struct rtl8xxxu_priv *priv, u32 lok_result)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	u32 reg_ea4, reg_eac, reg_e94, reg_e9c, val32, path_sel_bb, tmp;
 	int result = 0;
 
@@ -1254,6 +1271,7 @@ static int rtl8710bu_rx_iqk_path_a(struct rtl8xxxu_priv *priv, u32 lok_result)
 static void rtl8710bu_phy_iqcalibrate(struct rtl8xxxu_priv *priv,
 				      int result[][8], int t)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	struct device *dev = &priv->udev->dev;
 	u32 i, val32, rx_initial_gain, lok_result;
 	u32 path_sel_bb, path_sel_rf;
@@ -1405,6 +1423,7 @@ static void rtl8710bu_phy_iqcalibrate(struct rtl8xxxu_priv *priv,
 
 static void rtl8710bu_phy_iq_calibrate(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	struct device *dev = &priv->udev->dev;
 	int result[4][8]; /* last is final result */
 	int i, candidate;
@@ -1480,6 +1499,7 @@ static void rtl8710bu_phy_iq_calibrate(struct rtl8xxxu_priv *priv)
 
 static int rtl8710b_emu_to_active(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	u8 val8;
 	int count, ret = 0;
 
@@ -1514,6 +1534,7 @@ static int rtl8710b_emu_to_active(struct rtl8xxxu_priv *priv)
 
 static int rtl8710bu_active_to_emu(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	u8 val8;
 	u32 val32;
 	int count, ret = 0;
@@ -1550,6 +1571,7 @@ static int rtl8710bu_active_to_emu(struct rtl8xxxu_priv *priv)
 
 static int rtl8710bu_active_to_lps(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	struct device *dev = &priv->udev->dev;
 	u8 val8;
 	u16 val16;
@@ -1608,6 +1630,7 @@ static int rtl8710bu_active_to_lps(struct rtl8xxxu_priv *priv)
 
 static int rtl8710bu_power_on(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	u32 val32;
 	u16 val16;
 	u8 val8;
@@ -1674,6 +1697,7 @@ static int rtl8710bu_power_on(struct rtl8xxxu_priv *priv)
 
 static void rtl8710bu_power_off(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	u32 val32;
 	u8 val8;
 
@@ -1705,6 +1729,7 @@ static void rtl8710bu_power_off(struct rtl8xxxu_priv *priv)
 
 static void rtl8710b_reset_8051(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	u8 val8;
 
 	val8 = rtl8xxxu_read8(priv, REG_8051FW_CTRL_V1_8710B + 3);
@@ -1720,6 +1745,7 @@ static void rtl8710b_reset_8051(struct rtl8xxxu_priv *priv)
 
 static void rtl8710b_enable_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	u32 val32;
 
 	rtl8xxxu_write8(priv, REG_RF_CTRL, RF_ENABLE | RF_RSTB | RF_SDMRSTB);
@@ -1734,6 +1760,7 @@ static void rtl8710b_enable_rf(struct rtl8xxxu_priv *priv)
 
 static void rtl8710b_disable_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	u32 val32;
 
 	val32 = rtl8xxxu_read32(priv, REG_OFDM0_TRX_PATH_ENABLE);
@@ -1746,6 +1773,7 @@ static void rtl8710b_disable_rf(struct rtl8xxxu_priv *priv)
 
 static void rtl8710b_usb_quirks(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	u16 val16;
 
 	rtl8xxxu_gen2_usb_quirks(priv);
@@ -1760,6 +1788,7 @@ static void rtl8710b_usb_quirks(struct rtl8xxxu_priv *priv)
 
 static void rtl8710b_set_crystal_cap(struct rtl8xxxu_priv *priv, u8 crystal_cap)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	struct rtl8xxxu_cfo_tracking *cfo = &priv->cfo_tracking;
 	u32 val32;
 
@@ -1785,6 +1814,7 @@ static void rtl8710b_set_crystal_cap(struct rtl8xxxu_priv *priv, u8 crystal_cap)
 
 static s8 rtl8710b_cck_rssi(struct rtl8xxxu_priv *priv, struct rtl8723au_phy_stats *phy_stats)
 {
+	printk(KERN_DEBUG "8710b.c - ");
 	struct jaguar2_phy_stats_type0 *phy_stats0 = (struct jaguar2_phy_stats_type0 *)phy_stats;
 	u8 lna_idx = (phy_stats0->lna_h << 3) | phy_stats0->lna_l;
 	u8 vga_idx = phy_stats0->vga;

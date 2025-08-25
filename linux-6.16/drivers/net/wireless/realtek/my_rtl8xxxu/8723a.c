@@ -140,6 +140,7 @@ static const struct rtl8xxxu_rfregval rtl8723au_radioa_1t_init_table[] = {
 
 static int rtl8723au_identify_chip(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723a.c - ");
 	struct device *dev = &priv->udev->dev;
 	u32 val32, sys_cfg, vendor;
 	int ret = 0;
@@ -189,6 +190,7 @@ out:
 
 static int rtl8723au_parse_efuse(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723a.c - ");
 	struct rtl8723au_efuse *efuse = &priv->efuse_wifi.efuse8723;
 
 	if (efuse->rtl_id != cpu_to_le16(0x8129))
@@ -236,6 +238,7 @@ static int rtl8723au_parse_efuse(struct rtl8xxxu_priv *priv)
 
 static int rtl8723au_load_firmware(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723a.c - ");
 	const char *fw_name;
 	int ret;
 
@@ -260,6 +263,7 @@ static int rtl8723au_load_firmware(struct rtl8xxxu_priv *priv)
 
 static int rtl8723au_init_phy_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723a.c - ");
 	int ret;
 
 	ret = rtl8xxxu_init_phy_rf(priv, rtl8723au_radioa_1t_init_table, RF_A);
@@ -275,6 +279,7 @@ static int rtl8723au_init_phy_rf(struct rtl8xxxu_priv *priv)
 
 static int rtl8723a_emu_to_active(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723a.c - ");
 	u8 val8;
 	u32 val32;
 	int count, ret = 0;
@@ -367,6 +372,7 @@ exit:
 
 static int rtl8723au_power_on(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8723a.c - ");
 	u8 val8;
 	u16 val16;
 	u32 val32;
@@ -416,6 +422,7 @@ exit:
 
 void rtl8723a_set_crystal_cap(struct rtl8xxxu_priv *priv, u8 crystal_cap)
 {
+	printk(KERN_DEBUG "8723a.c - ");
 	struct rtl8xxxu_cfo_tracking *cfo = &priv->cfo_tracking;
 	u32 val32;
 
@@ -442,6 +449,7 @@ void rtl8723a_set_crystal_cap(struct rtl8xxxu_priv *priv, u8 crystal_cap)
 
 s8 rtl8723a_cck_rssi(struct rtl8xxxu_priv *priv, struct rtl8723au_phy_stats *phy_stats)
 {
+	printk(KERN_DEBUG "8723a.c - ");
 	u8 cck_agc_rpt = phy_stats->cck_agc_rpt_ofdm_cfosho_a;
 	s8 rx_pwr_all = 0x00;
 
@@ -466,6 +474,7 @@ s8 rtl8723a_cck_rssi(struct rtl8xxxu_priv *priv, struct rtl8723au_phy_stats *phy
 static int rtl8723au_led_brightness_set(struct led_classdev *led_cdev,
 					enum led_brightness brightness)
 {
+	printk(KERN_DEBUG "8723a.c - ");
 	struct rtl8xxxu_priv *priv = container_of(led_cdev,
 						  struct rtl8xxxu_priv,
 						  led_cdev);

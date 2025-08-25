@@ -464,6 +464,7 @@ static const struct rtl8xxxu_rfregval rtl8192eu_radiob_init_table[] = {
 
 static int rtl8192eu_identify_chip(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	struct device *dev = &priv->udev->dev;
 	u32 val32, bonding, sys_cfg, vendor;
 	int ret = 0;
@@ -512,6 +513,7 @@ out:
 static void
 rtl8192e_set_tx_power(struct rtl8xxxu_priv *priv, int channel, bool ht40)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	u32 val32, ofdm, mcs;
 	u8 cck, ofdmbase, mcsbase;
 	int group, tx_idx;
@@ -587,6 +589,7 @@ rtl8192e_set_tx_power(struct rtl8xxxu_priv *priv, int channel, bool ht40)
 
 static int rtl8192eu_parse_efuse(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	struct rtl8192eu_efuse *efuse = &priv->efuse_wifi.efuse8192eu;
 	int i;
 
@@ -639,6 +642,7 @@ static int rtl8192eu_parse_efuse(struct rtl8xxxu_priv *priv)
 
 static int rtl8192eu_load_firmware(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	const char *fw_name;
 	int ret;
 
@@ -651,6 +655,7 @@ static int rtl8192eu_load_firmware(struct rtl8xxxu_priv *priv)
 
 static void rtl8192eu_init_phy_bb(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	u8 val8;
 	u16 val16;
 
@@ -678,6 +683,7 @@ static void rtl8192eu_init_phy_bb(struct rtl8xxxu_priv *priv)
 
 static int rtl8192eu_init_phy_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	int ret;
 
 	ret = rtl8xxxu_init_phy_rf(priv, rtl8192eu_radioa_init_table, RF_A);
@@ -692,6 +698,7 @@ exit:
 
 static int rtl8192eu_iqk_path_a(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	u32 reg_eac, reg_e94, reg_e9c;
 	int result = 0;
 
@@ -742,6 +749,7 @@ static int rtl8192eu_iqk_path_a(struct rtl8xxxu_priv *priv)
 
 static int rtl8192eu_rx_iqk_path_a(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	u32 reg_ea4, reg_eac, reg_e94, reg_e9c, val32;
 	int result = 0;
 
@@ -869,6 +877,7 @@ out:
 
 static int rtl8192eu_iqk_path_b(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	u32 reg_eac, reg_eb4, reg_ebc;
 	int result = 0;
 
@@ -918,6 +927,7 @@ static int rtl8192eu_iqk_path_b(struct rtl8xxxu_priv *priv)
 
 static int rtl8192eu_rx_iqk_path_b(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	u32 reg_eac, reg_eb4, reg_ebc, reg_ec4, reg_ecc, val32;
 	int result = 0;
 
@@ -1050,6 +1060,7 @@ out:
 static void rtl8192eu_phy_iqcalibrate(struct rtl8xxxu_priv *priv,
 				      int result[][8], int t)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	struct device *dev = &priv->udev->dev;
 	u32 i, val32;
 	int path_a_ok, path_b_ok;
@@ -1235,6 +1246,7 @@ static void rtl8192eu_phy_iqcalibrate(struct rtl8xxxu_priv *priv,
 
 static void rtl8192eu_phy_iq_calibrate(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	struct device *dev = &priv->udev->dev;
 	int result[4][8];	/* last is final result */
 	int i, candidate;
@@ -1329,6 +1341,7 @@ static void rtl8192eu_phy_iq_calibrate(struct rtl8xxxu_priv *priv)
  */
 static void rtl8192e_crystal_afe_adjust(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	u8 val8;
 	u32 val32;
 
@@ -1361,6 +1374,7 @@ static void rtl8192e_crystal_afe_adjust(struct rtl8xxxu_priv *priv)
 
 static void rtl8192e_disabled_to_emu(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	u8 val8;
 
 	/* Clear suspend enable and power down enable*/
@@ -1371,6 +1385,7 @@ static void rtl8192e_disabled_to_emu(struct rtl8xxxu_priv *priv)
 
 static int rtl8192e_emu_to_active(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	u8 val8;
 	u32 val32;
 	int count, ret = 0;
@@ -1436,6 +1451,7 @@ exit:
 
 static int rtl8192eu_active_to_lps(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	struct device *dev = &priv->udev->dev;
 	u8 val8;
 	u16 val16;
@@ -1495,6 +1511,7 @@ out:
 
 static int rtl8192eu_active_to_emu(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	u8 val8;
 	int count, ret = 0;
 
@@ -1533,6 +1550,7 @@ exit:
 
 static int rtl8192eu_emu_to_disabled(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	u8 val8;
 
 	/* 0x04[12:11] = 01 enable WL suspend */
@@ -1546,6 +1564,7 @@ static int rtl8192eu_emu_to_disabled(struct rtl8xxxu_priv *priv)
 
 static int rtl8192eu_power_on(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	u16 val16;
 	u32 val32;
 	int ret;
@@ -1594,6 +1613,7 @@ exit:
 
 static void rtl8192eu_power_off(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	u8 val8;
 	u16 val16;
 
@@ -1628,6 +1648,7 @@ static void rtl8192eu_power_off(struct rtl8xxxu_priv *priv)
 
 static void rtl8192e_enable_rf(struct rtl8xxxu_priv *priv)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	u32 val32;
 	u8 val8;
 
@@ -1674,6 +1695,7 @@ static void rtl8192e_enable_rf(struct rtl8xxxu_priv *priv)
 
 static s8 rtl8192e_cck_rssi(struct rtl8xxxu_priv *priv, struct rtl8723au_phy_stats *phy_stats)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	static const s8 lna_gain_table_0[8] = {15, 9, -10, -21, -23, -27, -43, -44};
 	static const s8 lna_gain_table_1[8] = {24, 18, 13, -4, -11, -18, -31, -36};
 
@@ -1698,6 +1720,7 @@ static s8 rtl8192e_cck_rssi(struct rtl8xxxu_priv *priv, struct rtl8723au_phy_sta
 static int rtl8192eu_led_brightness_set(struct led_classdev *led_cdev,
 					enum led_brightness brightness)
 {
+	printk(KERN_DEBUG "8192e.c - ");
 	struct rtl8xxxu_priv *priv = container_of(led_cdev,
 						  struct rtl8xxxu_priv,
 						  led_cdev);
